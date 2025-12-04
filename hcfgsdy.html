@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTRAVISION — Billetterie</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --panel: #121829;
+      --text: #e7ecf3;
+      --muted: #9fb0c6;
+      --primary: #4f7cff;
+      --secondary: #00d4aa;
+      --accent: #ff6b6b;
+      --card: #182135;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1rem; background: var(--panel); position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid #1f263d;
+    }
+    .topbar .brand { font-weight: 700; letter-spacing: 0.5px; }
+    .topbar nav a { margin-left: 1rem; padding: 0.4rem 0.6rem; border-radius: 6px; }
+    .topbar nav a.active { background: var(--card); }
+    .hero {
+      position: relative;
+      background: url('spectravision-logo.png') center/contain no-repeat, var(--bg);
+      color: #fff; padding: 6rem 1rem;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero__content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; text-align: center; }
+    .hero h1 { font-size: 2.4rem; margin-bottom: 0.8rem; }
+    .hero p { max-width: 640px; margin: 0 auto; color: #e7ecf3; }
+    .btn { display: inline-block; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { background: var(--secondary); color: #0b0f1a; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 800px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    .card { background: var(--card); padding: 1rem; border-radius: 10px; border: 1px solid #1f263d; }
+    .cta-slab { text-align: center; background: var(--panel); border-top: 1px solid #1f263d; border-bottom: 1px solid #1f263d; }
+    .footer { background: var(--panel); padding: 1.2rem 0; border-top: 1px solid #1f263d; }
+    .footer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .footer p { color: var(--muted); }
+    .film-card { background: var(--card); border: 1px solid #1f263d; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .film-card img { width: 100%; height: 160px; object-fit: cover; }
+    .film-card .content { padding: 0.8rem; }
+    .film-card h3 { margin: 0.2rem 0 0.4rem; }
+    .film-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tag { font-size: 0.75rem; padding: 0.2rem 0.5rem; border: 1px solid #2a3656; border-radius: 999px; color: var(--muted); }
+    .booking-form { background: var(--panel); padding: 1rem; border-radius: 12px; border: 1px solid #1f263d; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; color: var(--muted); }
+    .form-group input, .form-group select {
+      width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid #2a3656; background: #0e1424; color: var(--text);
+    }
+    .price-panel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: var(--card); padding: 1rem; border-radius: 10px; border: 1px solid #1f263d; margin: 1rem 0; }
+    .price-panel .total { font-size: 1.2rem; color: #fff; }
+    .note { color: var(--muted); margin-top: 0.5rem; }
+    .form-actions { display: flex; align-items: center; gap: 1rem; }
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      SPECTRAVISION<br />
+      <small style="font-size:0.8rem; color:var(--muted); letter-spacing:1px;">VIVRE LE CINÉMA AUTREMENT</small>
+    </div>
+    <nav>
+      <a href="#accueil" id="nav-accueil" class="active">Accueil</a>
+      <a href="#films" id="nav-films">Films</a>
+      <a href="#reservation" id="nav-reservation">Réservation</a>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="page-accueil" class="page active">
+    <section class="hero">
+      <div class="hero__content">
+        <h1>VIVRE LE CINÉMA AUTREMENT</h1>
+        <p>Écrans premium, audio immersif Dolby, et sièges à effets dynamiques. Découvrez l’expérience SPECTRAVISION.</p>
+        <a class="btn btn-primary" href="#reservation">Réserver maintenant</a>
+      </div>
+    </section>
+    <section class="features container">
+      <h2>Nos expériences</h2>
+      <div class="grid-3">
+        <div class="card"><h3>3D haute fidélité</h3><p>Profondeur réaliste et lunettes légères.</p></div>
+        <div class="card"><h3>Audio Dolby Atmos</h3><p>Son multicanal enveloppant et puissant.</p></div>
+        <div class="card"><h3>Sièges NeoMotion</h3><p>Vibrations et mouvements synchronisés.</p></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Films -->
+  <section id="page-films" class="page">
+    <section class="container">
+      <h1>À l’affiche</h1>
+      <div id="filmsGrid" class="grid-3"></div>
+    </section>
+  </section>
+
+  <!-- Réservation -->
+  <section id="page-reservation" class="page">
+    <section class="container">
+      <h1>Réserver vos billets</h1>
+      <form id="bookingForm" class="booking-form">
+        <div class="form-group"><label for="movie">Film</label><select id="movie"></select></div>
+        <div class="form-group grid-2">
+          <div><label for="date">Date</label><input type="date" id="date" required /></

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cinéma Neo3D — Billetterie</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --panel: #121829;
+      --text: #e7ecf3;
+      --muted: #9fb0c6;
+      --primary: #4f7cff;
+      --secondary: #00d4aa;
+      --accent: #ff6b6b;
+      --card: #182135;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1rem; background: var(--panel); position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid #1f263d;
+    }
+    .topbar .brand { font-weight: 700; letter-spacing: 0.5px; }
+    .topbar nav a { margin-left: 1rem; padding: 0.4rem 0.6rem; border-radius: 6px; }
+    .topbar nav a.active { background: var(--card); }
+    .hero {
+      background: radial-gradient(1000px 400px at 10% 10%, #1c2440, transparent), url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1600&q=60');
+      background-size: cover; background-position: center;
+      color: #fff; padding: 6rem 1rem;
+    }
+    .hero__content { max-width: 800px; margin: 0 auto; }
+    .hero h1 { font-size: 2.4rem; margin-bottom: 0.8rem; }
+    .hero p { max-width: 640px; color: #e7ecf3; }
+    .btn { display: inline-block; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { background: var(--secondary); color: #0b0f1a; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 800px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    .card { background: var(--card); padding: 1rem; border-radius: 10px; border: 1px solid #1f263d; }
+    .cta-slab { text-align: center; background: var(--panel); border-top: 1px solid #1f263d; border-bottom: 1px solid #1f263d; }
+    .footer { background: var(--panel); padding: 1.2rem 0; border-top: 1px solid #1f263d; }
+    .footer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .footer p { color: var(--muted); }
+    .filters { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+    .filters label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; color: var(--muted); }
+    .film-card { background: var(--card); border: 1px solid #1f263d; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .film-card img { width: 100%; height: 160px; object-fit: cover; }
+    .film-card .content { padding: 0.8rem; }
+    .film-card h3 { margin: 0.2rem 0 0.4rem; }
+    .film-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tag { font-size: 0.75rem; padding: 0.2rem 0.5rem; border: 1px solid #2a3656; border-radius: 999px; color: var(--muted); }
+    .booking-form { background: var(--panel); padding: 1rem; border-radius: 12px; border: 1px solid #1f263d; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; color: var(--muted); }
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group select {
+      width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid #2a3656; background: #0e1424; color: var(--text);
+    }
+    .price-panel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: var(--card); padding: 1rem; border-radius: 10px; border: 1px solid #1f263d; margin: 1rem 0; }
+    .price-panel .total { font-size: 1.2rem; color: #fff; }
+    .note { color: var(--muted); margin-top: 0.5rem; }
+    .form-actions { display: flex; align-items: center; gap: 1rem; }
+    /* SPA pages */
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Cinéma Neo3D</div>
+    <nav>
+      <a href="#accueil" id="nav-accueil" class="active">Accueil</a>
+      <a href="#films" id="nav-films">Films</a>
+      <a href="#reservation" id="nav-reservation">Réservation</a>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="page-accueil" class="page active">
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Vivez le cinéma en 3D comme jamais</h1>
+        <p>
+          Écrans premium, audio immersif Dolby, et sièges à effets dynamiques qui bougent au rythme de l’action.
+          Personnalisez votre séance avec nos options et réservez en quelques clics.
+        </p>
+        <a class="btn btn-primary" href="#reservation">Réserver maintenant</a>
+      </div>
+    </section>
+
+    <section class="features container">
+      <h2>Nos expériences</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>3D haute fidélité</h3>
+          <p>Profondeur réaliste, luminosité optimisée et lunettes légères pour un confort total.</p>
+        </div>
+        <div class="card">
+          <h3>Audio immersif Dolby Atmos</h3>
+          <p>Son multicanal enveloppant pour des détails sonores précis et puissants.</p>
+        </div>
+        <div class="card">
+          <h3>Sièges à effets NeoMotion</h3>
+          <p>Vibrations et mouvements synchronisés avec les scènes clés, intensité réglable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container cta-slab">
+      <h2>Personnalisez votre séance</h2>
+      <p>Choisissez le format, l’audio et l’intensité des effets de siège. Le prix s’ajuste en temps réel.</p>
+      <a class="btn btn-secondary" href="#films">Voir les films à l’affiche</a>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div>
+          <strong>Adresse</strong>
+          <p>Neo3D — 12 Avenue Lumière, La Crau, France</p>
+        </div>
+        <div>
+          <strong>Horaires</strong>
+          <p>Ouvert 7j/7 | Premières séances à 10h, Dernière à 23h</p>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <p>info@neo3d.fr</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Films -->
+  <section id="page-films" class="page">
+    <section class="container">
+      <h1>À l’affiche</h1>
+      <div class="filters">
+        <label>
+          <span>Format:</span>
+          <select id="filterFormat">
+            <option value="">Tous</option>
+            <option value="2D">2D</option>
+            <option value="3D">3D</option>
+            <option value="IMAX">IMAX</option>
+          </select>
+        </label>
+        <label>
+          <span>Audio:</span>
+          <select id="filterAudio">
+            <option value="">Tous</option>
+            <option value="Standard">Standard</option>
+            <option value="Dolby Atmos">Dolby Atmos</option>
+          </select>
+        </label>
+      </div>
+      <div id="filmsGrid" class="grid-3"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div>
+          <strong>Conseil</strong>
+          <p>Les séances IMAX 3D avec Dolby Atmos offrent l’immersion maximale.</p>
+        </div>
+        <div>
+          <strong>Astuce</strong>
+          <p>Les sièges à effets sont disponibles dans les salles NeoMotion.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Réservation -->
+  <section id="page-reservation" class="page">
+    <section class="container">
+      <h1>Réserver vos billets</h1>
+
+      <form id="bookingForm" class="booking-form">
+        <div class="form-group">
+          <label for="movie">Film</label>
+          <select id="movie"></select>
+        </div>
+
+        <div class="form-group grid-2">
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+          </div>
+          <div>
+            <label for="time">Heure</label>
+            <select id="time">
+              <option>10:00</option>
+              <option>13:30</option>
+              <option>16:15</option>
+              <option>19:00</option>
+              <option>21:45</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group grid-3">
+          <div>
+            <label for="format">Format</label>
+            <select id="format">
+              <option value="2D">2D</option>
+              <option value="3D" selected>3D</option>
+              <option value="IMAX">IMAX</option>
+            </select>
+          </div>
+          <div>
+            <label for="audio">Audio</label>
+            <select id="audio">
+              <option value="Standard">Standard</option>
+              <option value="Dolby Atmos" selected>Dolby Atmos</option>
+            </select>
+          </div>
+          <div>
+            <label for="motion">Siège à effets</label>
+            <select id="motion">
+              <option value="None">Aucun</option>
+              <option value="Light">Effets légers</option>
+              <option value="Full" selected>Effets complets</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantité</label>
+          <input type="number" id="quantity" min="1" value="2" />
+        </div>
+
+        <div class="price-panel">
+          <div>
+            <strong>Prix de base:</strong>
+            <span id="basePrice">—</span>
+          </div>
+          <div>
+            <strong>Options:</strong>
+            <span id="optionsPrice">—</span>
+          </div>
+          <div class="total">
+            <strong>Total:</strong>
+            <span id="totalPrice">—</span>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Procéder au paiement</button>
+          <p class="note">Paiement simulé pour la démo. Intégration Stripe/PayPal à ajouter en production.</p>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div>
+          <strong>Sécurité</strong>
+          <p>Les lunettes 3D sont désinfectées après chaque séance. Les effets des sièges restent modérés.</p>
+        </div>
+        <div>
+          <strong>Accessibilité</strong>
+          <p>Zones sans effets disponibles. L’assistance est à votre disposition.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script>
+    // Données simulées
+    const FILMS = [
+      {
+        id: "neo-odyssey",
+        title: "Neo Odyssey",
+        format: ["3D", "IMAX"],
+        audio: ["Dolby Atmos"],
+        duration: 128,
+        poster: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=800&q=60",
+        tags: ["Action", "Sci-Fi", "3D"],
+        description: "Une aventure spatiale immersive avec séquences 3D spectaculaires et bande-son Atmos."
+      },
+      {
+        id: "echo-city",
+        title: "Echo City",
+        format: ["2D", "3D"],
+        audio: ["Standard", "Dolby Atmos"],
+        duration: 106,
+        poster: "https://images.unsplash.com/photo-1489599849927-58f31f1b4f1a?auto=format&fit=crop&w=800&q=60",
+        tags: ["Thriller", "IMAX option"],
+        description: "Un thriller urbain dont la tension monte avec les effets de siège synchronisés."
+      },
+      {
+        id: "wild-depth",
+        title: "Wild Depth",
+        format: ["3D"],
+        audio: ["Standard"],
+        duration: 94,
+        poster: "https://images.unsplash.com/photo-1490544921643-e8453e86b1bf?auto=format&fit=crop&w=800&q=60",
+        tags: ["Aventure", "Familial"],
+        description: "Exploration sous-marine qui prend vie en 3D avec mouvements doux des fauteuils."
+      }
+    ];
+
+    const PRICING = {
+      base: 10.0,              // base 2D standard
+      format: { "2D": 0, "3D": 3.5, "IMAX": 7.0 },
+      audio: { "Standard": 0, "Dolby Atmos": 2.0 },
+      motion: { "None": 0, "Light": 1.5, "Full": 3.0 }
+    };
+
+    // Utilitaires
+    function formatEUR(value) {
+      return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(value);
+    }
+
+    // SPA: navigation par hash
+    const pages = {
+      accueil: document.getElementById("page-accueil"),
+      films: document.getElementById("page-films"),
+      reservation: document.getElementById("page-reservation")
+    };
+    const navLinks = {
+      accueil: document.getElementById("nav-accueil"),
+      films: document.getElementById("nav-films"),
+      reservation: document.getElementById("nav-reservation")
+    };
+    function showPage(name) {
+      Object.values(pages).forEach(p => p.classList.remove("active"));
+      Object.values(navLinks).forEach(n => n.classList.remove("active"));
+      const page = pages[name] || pages.accueil;
+      const nav = navLinks[name] || navLinks.accueil;
+      page.classList.add("active");
+      nav.classList.add("active");
+      if (name === "films") renderFilmsGrid(document.getElementById("filmsGrid"));
+      if (name === "reservation") initBooking(); // idempotent init protection below
+    }
+    function handleHashChange() {
+      const hash = (location.hash || "#accueil").replace("#", "");
+      showPage(hash);
+    }
+    window.addEventListener("hashchange", handleHashChange);
+    handleHashChange();
+
+    // Rendu des cartes films
+    function renderFilmsGrid(container, filters = {}) {
+      container.innerHTML = "";
+      const list = FILMS.filter(f => {
+        const okFormat = !filters.format || f.format.includes(filters.format);
+        const okAudio = !filters.audio || f.audio.includes(filters.audio);
+        return okFormat && okAudio;
+      });
+
+      list.forEach(film => {
+        const card = document.createElement("div");
+        card.className = "film-card";
+        card.innerHTML = `
+          <img src="${film.poster}" alt="${film.title}" />
+          <div class="content">
+            <h3>${film.title}</h3>
+            <p>${film.description}</p>
+            <div class="tags">
+              ${film.format.map(x => `<span class="tag">${x}</span>`).join("")}
+              ${film.audio.map(x => `<span class="tag">${x}</span>`).join("")}
+              <span class="tag">${film.duration} min</span>
+            </div>
+            <div style="margin-top:0.6rem;">
+              <a class="btn btn-secondary" href="#reservation" data-film="${film.id}">Réserver</a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (list.length === 0) {
+        container.innerHTML = `<p class="note">Aucun film ne correspond à vos filtres.</p>`;
+      }
+
+      // Lien "Réserver" pré-sélecteur
+      container.querySelectorAll('a[data-film]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const filmId = a.getAttribute('data-film');
+          sessionStorage.setItem('selectedFilm', filmId);
+        });
+      });
+
+      // Filtres
+      const fFormat = document.getElementById('filterFormat');
+      const fAudio = document.getElementById('filterAudio');
+      if (fFormat && fAudio) {
+        fFormat.onchange = () => renderFilmsGrid(container, { format: fFormat.value, audio: fAudio.value });
+        fAudio.onchange = () => renderFilmsGrid(container, { format: fFormat.value, audio: fAudio.value });
+      }
+    }
+
+    // Initialisation du formulaire de réservation (idempotent)
+    let bookingInitialized = false;
+    function initBooking() {
+      if (bookingInitialized) { updatePrice(); return; }
+      bookingInitialized = true;
+
+      const movieSel = document.getElementById("movie");
+      const formatSel = document.getElementById("format");
+      const audioSel = document.getElementById("audio");
+      const motionSel = document.getElementById("motion");
+      const qtyInput = document.getElementById("quantity");
+
+      const basePriceEl = document.getElementById("basePrice");
+      const optionsPriceEl = document.getElementById("optionsPrice");
+      const totalPriceEl = document.getElementById("totalPrice");
+
+      // Alimenter la liste des films
+      FILMS.forEach(f => {
+        const opt = document.createElement("option");
+        opt.value = f.id;
+        opt.textContent = f.title;
+        movieSel.appendChild(opt);
+      });
+
+      // Pré-sélection depuis la navigation (sessionStorage) ou hash ?film=
+      const preselected = sessionStorage.getItem('selectedFilm');
+      const hashParams = new URLSearchParams((location.hash.split('?')[1]) || "");
+      const hashFilm = hashParams.get('film');
+      const initialFilm = preselected || hashFilm;
+      if (initialFilm) movieSel.value = initialFilm;
+
+      // Adapter formats/audio selon le film sélectionné
+      function syncOptionsWithFilm() {
+        const film = FILMS.find(f => f.id === movieSel.value);
+        if (!film) return;
+
+        // Formats
+        formatSel.innerHTML = "";
+        film.format.forEach(fmt => {
+          const opt = document.createElement("option");
+          opt.value = fmt;
+          opt.textContent = fmt;
+          formatSel.appendChild(opt);
+        });
+
+        // Audio
+        audioSel.innerHTML = "";
+        film.audio.forEach(a => {
+          const opt = document.createElement("option");
+          opt.value = a;
+          opt.textContent = a;
+          audioSel.appendChild(opt);
+        });
+
+        updatePrice();
+      }
+
+      movieSel.addEventListener("change", syncOptionsWithFilm);
+
+      // Calcul du prix
+      function computeUnitPrice() {
+        const format = formatSel.value || "2D";
+        const audio = audioSel.value || "Standard";
+        const motion = motionSel.value || "None";
+        const unit = PRICING.base + PRICING.format[format] + PRICING.audio[audio] + PRICING.motion[motion];
+        return unit;
+      }
+
+      function updatePrice() {
+        const unit = computeUnitPrice();
+        const qty = Math.max(1, parseInt(qtyInput.value || "1", 10));
+        const optionsOnly = unit - PRICING.base;
+
+        basePriceEl.textContent = formatEUR(PRICING.base * qty);
+        optionsPriceEl.textContent = formatEUR(optionsOnly * qty);
+        totalPriceEl.textContent = formatEUR(unit * qty);
+      }
+
+      [formatSel, audioSel, motionSel, qtyInput].forEach(el => {
+        el.addEventListener("change", updatePrice);
+        el.addEventListener("input", updatePrice);
+      });
+
+      // Soumission (simulation)
+      const form = document.getElementById("bookingForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const payload = {
+          film: movieSel.value,
+          date: document.getElementById("date").value,
+          time: document.getElementById("time").value,
+          format: formatSel.value,
+          audio: audioSel.value,
+          motion: motionSel.value,
+          quantity: Math.max(1, parseInt(qtyInput.value || "1", 10)),
+          total: document.getElementById("totalPrice").textContent
+        };
+        alert(`Commande créée:\n${JSON.stringify(payload, null, 2)}\n\n(Intégrer un paiement en ligne pour finaliser.)`);
+      });
+
+      // Initial run
+      syncOptionsWithFilm();
+      updatePrice();
+    }
+  </script>
+</body>
+</html>
+

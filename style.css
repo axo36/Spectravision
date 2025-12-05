@@ -13,8 +13,8 @@
 }
 
 .logo-img {
-    width: 32px;
-    height: 22px;
+    width: 52px;
+    height: 42px;
     border-radius: 20px; /* coins arrondis */
     object-fit: cover;   /* évite la déformation */
 }
@@ -75,3 +75,4 @@ a:hover { text-decoration: underline; }
 .form-actions { display: flex; align-items: center; gap: 1rem; }
 .page { display: none; }
 .page.active { display: block; }
+

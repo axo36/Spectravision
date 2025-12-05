@@ -13,8 +13,8 @@
     }
 
     .logo-img {
-        width: 320px;
-        height: 220px;
+        width: 30px;
+        height: 20px;
         border-radius: 20px; /* coins arrondis */
         object-fit: cover;   /* évite la déformation */
     }
@@ -75,4 +75,5 @@
     .form-actions { display: flex; align-items: center; gap: 1rem; }
     .page { display: none; }
     .page.active { display: block; }
+
 

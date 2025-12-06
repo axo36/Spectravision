@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SPECTRAVISION — MENU</title>
+  <meta charset="UTF-8">
+  <title>Test EmailJS</title>
 
-  <!-- Import EmailJS -->
+  <!-- SDK EmailJS -->
   <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("XNSIQz9FjiHtVcuuL"); // Ton PUBLIC KEY
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
     })();
   </script>
 </head>
 <body>
-  <h1>SPECTRAVISION</h1>
-  <h2>Contactez-nous, inscrivez-vous</h2>
+  <h1>Test EmailJS</h1>
 
-  <form id="contact-form" method="POST">
-    <label>Votre email :</label>
-    <input type="email" name="user_email" required>
-
+  <form id="test-form">
+    <label for="email">Votre email :</label>
+    <input type="email" name="user_email" id="email" required>
     <button type="submit">Envoyer</button>
   </form>
 
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    document.getElementById("test-form").addEventListener("submit", function(e) {
       e.preventDefault();
-      emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
-        .then(() => {
-          alert("Email envoyé avec succès !");
-        })
-        .catch(err => {
-          alert("Erreur : " + JSON.stringify(err));
-        });
+
+      console.log("Formulaire soumis, envoi en cours…");
+
+      emailjs.sendForm(
+        "service_lsaa4zo",   // ⚠️ Mets ton Service ID
+        "template_umkge6s",  // ⚠️ Mets ton Template ID
+        this
+      ).then(() => {
+        alert("✅ Email envoyé avec succès !");
+        console.log("EmailJS : envoi réussi");
+      }).catch(err => {
+        alert("❌ Erreur : " + JSON.stringify(err));
+        console.error("EmailJS : erreur", err);
+      });
     });
   </script>
 </body>

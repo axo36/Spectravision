@@ -205,7 +205,7 @@ button:hover {
 
 .hero {
   position: relative;
-  height: 100vh; /* plein écran */
+  height: 70vh; /* plein écran */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -238,6 +238,7 @@ button:hover {
   max-width: 800px;
   margin: 0 auto;
 }
+
 
 
 

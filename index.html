@@ -56,6 +56,37 @@
         <div class="form-group grid-2">
           <div><label for="date">Date</label><input type="date" id="date" required /></
 
+    <title>Formulaire Email</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
+    })();
+  </script>
+</head>
+<body>
+  <form id="contact-form">
+    <label>Votre email :</label>
+    <input type="email" name="user_email" required>
+
+    <label>Message :</label>
+    <textarea name="message" required></textarea>
+
+    <label>Fichier :</label>
+    <input type="file" name="my_file" required>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('TON_SERVICE_ID', 'TON_TEMPLATE_ID', this)
+        .then(() => alert('Email envoyé avec succès !'))
+        .catch(err => alert('Erreur: ' + JSON.stringify(err)));
+    });
+  </script>
+
 
 
 

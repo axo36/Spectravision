@@ -9,8 +9,8 @@
 <body>
   <header class="topbar">
     <div class="brand">
-      SPECTRAVISION<br />
       <img src="logoblack.png" alt="Logo Spectravision" class="logo-img" />
+      SPECTRAVISION<br />
       <small style="font-size:0.8rem; color:var(--muted); letter-spacing:1px;">VIVRE LE CINÉMA AUTREMENT</small>
     </div>
     <nav>
@@ -81,11 +81,12 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      emailjs.sendForm('TON_SERVICE_ID', 'TON_TEMPLATE_ID', this)
+      emailjs.sendForm('service_0l1mpgi', 'TON_TEMPLATE_ID', this)
         .then(() => alert('Email envoyé avec succès !'))
         .catch(err => alert('Erreur: ' + JSON.stringify(err)));
     });
   </script>
+
 
 
 

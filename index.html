@@ -49,7 +49,7 @@
       <form id="contact-form">
         <label>Votre email :</label>
         <input type="email" name="user_email" required>
-        <button type="submit">Envoyer</button>
+        <button type="submit" id="sendBtn">Envoyer</button>
       </form>
   </section>
 
@@ -82,17 +82,30 @@
 
   <!-- SCRIPT ENVOI EMAIL -->
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    const form = document.getElementById('contact-form');
+    const sendBtn = document.getElementById('sendBtn');
+
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      emailjs.sendForm(
-        "service_lsaa4zo",   // ⚠️ Mets ton Service ID
-        "template_umkge6s",  // ⚠️ Mets ton Template ID
-        this
-      ).then(() => {
-        alert("Email envoyé avec succès !");
-      }).catch(err => {
-        alert("Erreur lors de l'envoi.");
-      });
+
+      // Indiquer que le bouton a été cliqué
+      sendBtn.textContent = "Envoi en cours...";
+      sendBtn.disabled = true;
+
+      // Envoi via EmailJS
+      emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
+        .then(() => {
+          sendBtn.textContent = "Envoyé ✅";
+        })
+        .catch(() => {
+          sendBtn.textContent = "Erreur ❌";
+        });
+
+      // Réactiver le bouton après 10 secondes
+      setTimeout(() => {
+        sendBtn.textContent = "Envoyer";
+        sendBtn.disabled = false;
+      }, 10000);
     });
   </script>
 </body>

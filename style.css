@@ -14,7 +14,7 @@
 
 .logo-img {
     width: 120px;
-    height: 82px;
+    height: 100px;
     border-radius: 5px; /* coins arrondis */
     object-fit: cover;   /* évite la déformation */
 }
@@ -75,5 +75,6 @@ a:hover { text-decoration: underline; }
 .form-actions { display: flex; align-items: center; gap: 1rem; }
 .page { display: none; }
 .page.active { display: block; }
+
 
 

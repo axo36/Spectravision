@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SPECTRAVISION — MENU</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Import EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("TON_USER_ID"); // ⚠️ Remplace par ton User ID EmailJS
+    })();
+  </script>
 </head>
 <body>
+  <!-- HEADER -->
   <header class="topbar">
     <div class="brand">
       <img src="logoblack.png" alt="Logo Spectravision" class="logo-img" />
       SPECTRAVISION<br />
-      <small style="font-size:0.8rem; color:var(--muted); letter-spacing:1px;">VIVRE LE CINÉMA AUTREMENT</small>
+      <small style="font-size:0.8rem; color:var(--muted); letter-spacing:1px;">
+        VIVRE LE CINÉMA AUTREMENT
+      </small>
     </div>
     <nav>
       <a href="#accueil" id="nav-accueil" class="active">Accueil</a>
@@ -20,7 +31,7 @@
     </nav>
   </header>
 
-  <!-- Accueil -->
+  <!-- ACCUEIL -->
   <section id="page-accueil" class="page active">
     <section class="hero">
       <div class="hero__content">
@@ -39,7 +50,7 @@
     </section>
   </section>
 
-  <!-- Films -->
+  <!-- FILMS -->
   <section id="page-films" class="page">
     <section class="container">
       <h1>À l’affiche</h1>
@@ -47,37 +58,41 @@
     </section>
   </section>
 
-  <!-- Réservation -->
+  <!-- RÉSERVATION -->
   <section id="page-reservation" class="page">
     <section class="container">
       <h1>Réserver vos billets</h1>
       <form id="bookingForm" class="booking-form">
-        <div class="form-group"><label for="movie">Film</label><select id="movie"></select></div>
+        <div class="form-group">
+          <label for="movie">Film</label>
+          <select id="movie"></select>
+        </div>
         <div class="form-group grid-2">
-          <div><label for="date">Date</label><input type="date" id="date" required /></
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+          </div>
+        </div>
+      </form>
 
-    <title>Formulaire Email</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("TON_USER_ID"); // remplace par ton User ID EmailJS
-    })();
-  </script>
-</head>
-<body>
-  <form id="contact-form">
-    <label>Votre email :</label>
-    <input type="email" name="user_email" required>
+      <!-- FORMULAIRE EMAIL -->
+      <h2>Contactez-nous</h2>
+      <form id="contact-form">
+        <label>Votre email :</label>
+        <input type="email" name="user_email" required>
 
-    <label>Message :</label>
-    <textarea name="message" required></textarea>
+        <label>Message :</label>
+        <textarea name="message" required></textarea>
 
-    <label>Fichier :</label>
-    <input type="file" name="my_file" required>
+        <label>Fichier :</label>
+        <input type="file" name="my_file" required>
 
-    <button type="submit">Envoyer</button>
-  </form>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </section>
 
+  <!-- SCRIPT ENVOI EMAIL -->
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -86,7 +101,8 @@
         .catch(err => alert('Erreur: ' + JSON.stringify(err)));
     });
   </script>
-
+</body>
+</html>
 
 
 

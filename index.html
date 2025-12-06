@@ -4,105 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SPECTRAVISION — MENU</title>
-  <link rel="stylesheet" href="style.css" />
 
   <!-- Import EmailJS -->
   <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
   <script>
     (function(){
-      // ⚠️ Remplace par ta clé publique EmailJS
-      emailjs.init("XNSIQz9FjiHtVcuuL"); 
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // Ton PUBLIC KEY
     })();
   </script>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="topbar">
-    <div class="brand">
-      <img src="logoblack.png" alt="Logo Spectravision" class="logo-img" />
-    </div>
-    <nav>
-      <a href="#accueil" id="nav-accueil" class="active">Accueil</a>
-      <a href="#films" id="nav-films">Films</a>
-      <a href="#reservation" id="nav-reservation">Réservation</a>
-    </nav>
-  </header>
+  <h1>SPECTRAVISION</h1>
+  <h2>Contactez-nous, inscrivez-vous</h2>
 
-  <!-- ACCUEIL -->
-  <section id="page-accueil" class="page active">
-    <section class="hero">
-      <div class="hero__content">
-        <h1>VIVRE LE CINÉMA AUTREMENT</h1>
-        <p>Écrans premium, audio immersif Dolby, et sièges à effets dynamiques. Découvrez l’expérience SPECTRAVISION.</p>
-        <a class="btn btn-primary" href="#reservation">Réserver maintenant</a>
-      </div>
-    </section>
-    <section class="features container">
-      <h2>Nos expériences</h2>
-      <div class="grid-3">
-        <div class="card"><h3>3D haute fidélité</h3><p>Profondeur réaliste et lunettes légères.</p></div>
-        <div class="card"><h3>Audio Dolby Atmos</h3><p>Son multicanal enveloppant et puissant.</p></div>
-        <div class="card"><h3>Sièges NeoMotion</h3><p>Vibrations et mouvements synchronisés.</p></div>
-      </div>
-    </section>
-    <h2>Contactez-nous, incriver-vous</h2>
-      <form id="contact-form">
-        <label>Votre email :</label>
-        <input type="email" name="user_email" required>
-        <button type="submit">Envoyer</button>
-      </form>
-  </section>
+  <form id="contact-form" method="POST">
+    <label>Votre email :</label>
+    <input type="email" name="user_email" required>
 
-  <!-- FILMS -->
-  <section id="page-films" class="page">
-    <section class="container">
-      <h1>À l’affiche</h1>
-      <div id="filmsGrid" class="grid-3"></div>
-    </section>
-  </section>
+    <button type="submit">Envoyer</button>
+  </form>
 
-  <!-- RÉSERVATION -->
-  <section id="page-reservation" class="page">
-    <section class="container">
-      <h1>Réserver vos billets</h1>
-      <form id="bookingForm" class="booking-form">
-        <div class="form-group">
-          <label for="movie">Film</label>
-          <select id="movie"></select>
-        </div>
-        <div class="form-group grid-2">
-          <div>
-            <label for="date">Date</label>
-            <input type="date" id="date" required />
-          </div>
-        </div>
-      </form>
-
-      <!-- FORMULAIRE EMAIL -->
-      
-    </section>
-  </section>
-
-  <!-- SCRIPT ENVOI EMAIL -->
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      emailjs.sendForm(
-        "service_lsaa4zo",   // ⚠️ Remplace par ton Service ID
-        "template_umkge6s",  // ⚠️ Remplace par ton Template ID
-        this
-      ).then(() => {
-        alert("Email envoyé avec succès !");
-      }).catch(err => {
-        alert("Erreur: " + JSON.stringify(err));
-      });
+      emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
+        .then(() => {
+          alert("Email envoyé avec succès !");
+        })
+        .catch(err => {
+          alert("Erreur : " + JSON.stringify(err));
+        });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-

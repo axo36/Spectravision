@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 
   <!-- Import EmailJS -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("TON_USER_ID"); // ⚠️ Remplace par ton User ID EmailJS
+      // ⚠️ Remplace par ta clé publique EmailJS
+      emailjs.init("VOTRE_PUBLIC_KEY"); 
     })();
   </script>
 </head>
@@ -81,7 +82,7 @@
         <textarea name="message" required></textarea>
 
         <label>Fichier :</label>
-        <input type="file" name="my_file" required>
+        <input type="file" name="my_file">
 
         <button type="submit">Envoyer</button>
       </form>
@@ -92,16 +93,16 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      emailjs.sendForm('service_0l1mpgi', 'TON_TEMPLATE_ID', this)
-        .then(() => alert('Email envoyé avec succès !'))
-        .catch(err => alert('Erreur: ' + JSON.stringify(err)));
+      emailjs.sendForm(
+        "VOTRE_SERVICE_ID",   // ⚠️ Remplace par ton Service ID
+        "VOTRE_TEMPLATE_ID",  // ⚠️ Remplace par ton Template ID
+        this
+      ).then(() => {
+        alert("Email envoyé avec succès !");
+      }).catch(err => {
+        alert("Erreur: " + JSON.stringify(err));
+      });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-

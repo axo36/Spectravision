@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Test bouton</title>
+  <title>SPECTRAVISION — MENU</title>
+
+  <!-- Import EmailJS -->
+  <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // Ton PUBLIC KEY
+    })();
+  </script>
 </head>
 <body>
-  <form id="contact-form">
+  <h1>SPECTRAVISION</h1>
+  <h2>Contactez-nous, inscrivez-vous</h2>
+
+  <form id="contact-form" method="POST">
+    <label>Votre email :</label>
     <input type="email" name="user_email" required>
+
     <button type="submit">Envoyer</button>
   </form>
 
   <script>
-    // Vérifier si le bouton déclenche bien l'événement
     document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault(); // empêche l'envoi classique
-      alert("Le bouton marche, l'événement submit est déclenché !");
-      console.log("Formulaire soumis !");
+      e.preventDefault();
+      emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
+        .then(() => {
+          alert("Email envoyé avec succès !");
+        })
+        .catch(err => {
+          alert("Erreur : " + JSON.stringify(err));
+        });
     });
   </script>
 </body>
 </html>
-
-

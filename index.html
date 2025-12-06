@@ -2,13 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Test EmailJS</title>
+  <title>Test EmailJS complet</title>
 
   <!-- SDK EmailJS -->
   <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
+      try {
+        emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
+        console.log("✅ EmailJS initialisé avec la clé publique.");
+      } catch (err) {
+        console.error("❌ Erreur d'initialisation EmailJS :", err);
+      }
     })();
   </script>
 </head>
@@ -22,21 +27,46 @@
   </form>
 
   <script>
-    document.getElementById("test-form").addEventListener("submit", function(e) {
+    const form = document.getElementById("test-form");
+
+    if (form) {
+      console.log("✅ Formulaire détecté dans le DOM.");
+    } else {
+      console.error("❌ Formulaire introuvable !");
+    }
+
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
+      alert("Le bouton marche, l'événement submit est déclenché !");
+      console.log("✅ Bouton cliqué, événement submit capté.");
 
-      console.log("Formulaire soumis, envoi en cours…");
+      // Vérification des champs
+      const emailValue = document.getElementById("email").value;
+      if (!emailValue) {
+        console.error("❌ Aucun email saisi dans le champ.");
+        alert("Erreur : le champ email est vide !");
+        return;
+      } else {
+        console.log("✅ Email saisi :", emailValue);
+      }
 
+      // Envoi via EmailJS
       emailjs.sendForm(
         "service_lsaa4zo",   // ⚠️ Mets ton Service ID
         "template_umkge6s",  // ⚠️ Mets ton Template ID
         this
       ).then(() => {
         alert("✅ Email envoyé avec succès !");
-        console.log("EmailJS : envoi réussi");
+        console.log("✅ EmailJS : envoi réussi.");
       }).catch(err => {
-        alert("❌ Erreur : " + JSON.stringify(err));
-        console.error("EmailJS : erreur", err);
+        alert("❌ Erreur EmailJS : " + JSON.stringify(err));
+        console.error("❌ EmailJS : erreur détectée :", err);
+
+        // Détection des causes fréquentes
+        if (err.status === 422) {
+          console.error("⚠️ Problème : destinataire vide dans le template EmailJS.");
+          alert("⚠️ Vérifie que 'Envoyer par email' est bien rempli dans ton template.");
+        }
       });
     });
   </script>

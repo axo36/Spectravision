@@ -5,20 +5,10 @@
   <title>Test EmailJS complet</title>
 
   <!-- SDK EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function(){
-      try {
-        emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
-        console.log("✅ EmailJS initialisé avec la clé publique.");
-      } catch (err) {
-        console.error("❌ Erreur d'initialisation EmailJS :", err);
-      }
-    })();
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
 </head>
 <body>
-  <h1>Test EmailJSs</h1>
+  <h1>Testj EmailJS</h1>
 
   <form id="test-form">
     <label for="email">Votre email :</label>
@@ -26,51 +16,36 @@
     <button type="submit">Envoyer</button>
   </form>
 
+  <!-- Ton script doit venir APRÈS l'import -->
   <script>
-    const form = document.getElementById("test-form");
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialiser EmailJS
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique
 
-    if (form) {
-      console.log("✅ Formulaire détecté dans le DOM.");
-    } else {
-      console.error("❌ Formulaire introuvable !");
-    }
+      const form = document.getElementById("test-form");
+      console.log("✅ Formulaire détecté :", form);
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Le bouton marche, l'événement submit est déclenché !");
-      console.log("✅ Bouton cliqué, événement submit capté.");
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Le bouton marche !");
+        console.log("✅ Bouton cliqué, événement submit capté.");
 
-      // Vérification des champs
-      const emailValue = document.getElementById("email").value;
-      if (!emailValue) {
-        console.error("❌ Aucun email saisi dans le champ.");
-        alert("Erreur : le champ email est vide !");
-        return;
-      } else {
-        console.log("✅ Email saisi :", emailValue);
-      }
-
-      // Envoi via EmailJS
-      emailjs.sendForm(
-        "service_lsaa4zo",   // ⚠️ Mets ton Service ID
-        "template_umkge6s",  // ⚠️ Mets ton Template ID
-        this
-      ).then(() => {
-        alert("✅ Email envoyé avec succès !");
-        console.log("✅ EmailJS : envoi réussi.");
-      }).catch(err => {
-        alert("❌ Erreur EmailJS : " + JSON.stringify(err));
-        console.error("❌ EmailJS : erreur détectée :", err);
-
-        // Détection des causes fréquentes
-        if (err.status === 422) {
-          console.error("⚠️ Problème : destinataire vide dans le template EmailJS.");
-          alert("⚠️ Vérifie que 'Envoyer par email' est bien rempli dans ton template.");
+        const emailValue = document.getElementById("email").value;
+        if (!emailValue) {
+          alert("❌ Erreur : champ email vide !");
+          return;
         }
+
+        emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
+          .then(() => {
+            alert("✅ Email envoyé avec succès !");
+          })
+          .catch(err => {
+            console.error("❌ Erreur EmailJS :", err);
+            alert("❌ Erreur EmailJS : " + JSON.stringify(err));
+          });
       });
     });
   </script>
 </body>
 </html>
-
-

@@ -186,6 +186,23 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* Style normal du bouton */
+#sendBtn {
+  background-color: #007bff; /* bleu */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Quand le bouton est désactivé */
+#sendBtn:disabled {
+  background-color: #555; /* gris sombre */
+  color: #ccc;            /* texte grisé */
+  cursor: not-allowed;
+}
+
 
 
 

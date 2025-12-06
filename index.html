@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Test EmailJS complet</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTRAVISION — MENU</title>
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- SDK EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+  <!-- Import EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      // ⚠️ Mets ta clé publique EmailJS
+      emailjs.init("XNSIQz9FjiHtVcuuL"); 
+    })();
+  </script>
 </head>
 <body>
-  <h1>Testj EmailJS</h1>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="logoblack.png" alt="Logo Spectravision" class="logo-img" />
+    </div>
+    <nav>
+      <a href="#accueil" id="nav-accueil" class="active">Accueil</a>
+      <a href="#films" id="nav-films">Films</a>
+      <a href="#reservation" id="nav-reservation">Réservation</a>
+    </nav>
+  </header>
 
-  <form id="test-form">
-    <label for="email">Votre email :</label>
-    <input type="email" name="user_email" id="email" required>
-    <button type="submit">Envoyer</button>
-  </form>
+  <!-- ACCUEIL -->
+  <section id="page-accueil" class="page active">
+    <section class="hero">
+      <div class="hero__content">
+        <h1>VIVRE LE CINÉMA AUTREMENT</h1>
+        <p>Écrans premium, audio immersif Dolby, et sièges à effets dynamiques. Découvrez l’expérience SPECTRAVISION.</p>
+        <a class="btn btn-primary" href="#reservation">Réserver maintenant</a>
+      </div>
+    </section>
+    <section class="features container">
+      <h2>Nos expériences</h2>
+      <div class="grid-3">
+        <div class="card"><h3>3D haute fidélité</h3><p>Profondeur réaliste et lunettes légères.</p></div>
+        <div class="card"><h3>Audio Dolby Atmos</h3><p>Son multicanal enveloppant et puissant.</p></div>
+        <div class="card"><h3>Sièges NeoMotion</h3><p>Vibrations et mouvements synchronisés.</p></div>
+      </div>
+    </section>
+    <h2>Contactez-nous, inscrivez-vous</h2>
+      <form id="contact-form">
+        <label>Votre email :</label>
+        <input type="email" name="user_email" required>
+        <button type="submit">Envoyer</button>
+      </form>
+  </section>
 
-  <!-- Ton script doit venir APRÈS l'import -->
+  <!-- FILMS -->
+  <section id="page-films" class="page">
+    <section class="container">
+      <h1>À l’affiche</h1>
+      <div id="filmsGrid" class="grid-3"></div>
+    </section>
+  </section>
+
+  <!-- RÉSERVATION -->
+  <section id="page-reservation" class="page">
+    <section class="container">
+      <h1>Réserver vos billets</h1>
+      <form id="bookingForm" class="booking-form">
+        <div class="form-group">
+          <label for="movie">Film</label>
+          <select id="movie"></select>
+        </div>
+        <div class="form-group grid-2">
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+
+  <!-- SCRIPT ENVOI EMAIL -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Initialiser EmailJS
-      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique
-
-      const form = document.getElementById("test-form");
-      console.log("✅ Formulaire détecté :", form);
-
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        alert("Le bouton marche !");
-        console.log("✅ Bouton cliqué, événement submit capté.");
-
-        const emailValue = document.getElementById("email").value;
-        if (!emailValue) {
-          alert("❌ Erreur : champ email vide !");
-          return;
-        }
-
-        emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
-          .then(() => {
-            alert("✅ Email envoyé avec succès !");
-          })
-          .catch(err => {
-            console.error("❌ Erreur EmailJS :", err);
-            alert("❌ Erreur EmailJS : " + JSON.stringify(err));
-          });
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm(
+        "service_lsaa4zo",   // ⚠️ Mets ton Service ID
+        "template_umkge6s",  // ⚠️ Mets ton Template ID
+        this
+      ).then(() => {
+        alert("Email envoyé avec succès !");
+      }).catch(err => {
+        alert("Erreur lors de l'envoi.");
       });
     });
   </script>

@@ -35,8 +35,8 @@ a:hover { text-decoration: underline; }
     background: var(--panel);
     position: sticky; top: 0;
     z-index: 10;
-    border-bottom: 1px solid #1f263d;
-    height: 50px;
+    border-bottom: 1px solid #010101;
+    height: 70px;
 }
 .topbar .brand { font-weight: 700; letter-spacing: 0.5px; }
 .topbar nav a { margin-left: 1rem; padding: 0.4rem 0.6rem; border-radius: 6px; }
@@ -247,6 +247,7 @@ button:hover {
   max-width: 800px;
   margin: 0 auto;
 }
+
 
 
 

@@ -28,8 +28,13 @@ a { color: var(--secondary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 .topbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1rem 1rem; background: var(--panel); position: sticky; top: 0; z-index: 10;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 1rem;
+    background: var(--panel);
+    position: sticky; top: 0;
+    z-index: 10;
     border-bottom: 1px solid #1f263d;
     height: 50px;
 }
@@ -242,6 +247,7 @@ button:hover {
   max-width: 800px;
   margin: 0 auto;
 }
+
 
 
 

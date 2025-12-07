@@ -15,11 +15,31 @@
 
 /* Logo */
 .logo-img {
-    max-height: 50px;
+    max-height: 50px;   /* taille contrôlée */
     width: auto;
     object-fit: contain;
     margin: 0;
     padding: 0;
+    border-radius: 10px;
+}
+
+/* Bloc logo + texte */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* espace entre logo et texte */
+}
+
+.brand-text h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text);
+}
+
+.brand-text p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--muted);
 }
 
 /* Reset */
@@ -38,7 +58,7 @@ a:hover { text-decoration: underline; }
 /* Header */
 .topbar {
     background-color: #1e1e1e;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,24 +69,6 @@ a:hover { text-decoration: underline; }
     height: 70px;
 }
 
-/* Bloc logo + texte */
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-.brand-text h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--text);
-}
-.brand-text p {
-    font-size: 0.8rem;
-    margin: 0;
-    color: var(--muted);
-}
-
-/* Navigation */
 .topbar nav a {
     color: #b0b0b0;
     margin-left: 1rem;

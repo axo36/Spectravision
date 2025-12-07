@@ -36,10 +36,12 @@
     color: var(--text);
 }
 .texm {
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  display: block;        /* occupe toute la largeur */
+  text-align: center;    /* centre le texte horizontalement */
+  margin: 1rem 0;        /* espace au-dessus et en dessous */
+  font-size: 1.5rem;     /* taille du texte */
+  font-weight: bold;     /* gras */
+  color: var(--text);    /* couleur du thème */
 }
 
 .brand-text p {
@@ -239,4 +241,5 @@ button:hover {
 /* Pages */
 .page { display: none; padding: 2rem; }
 .page.active { display: block; }
+
 

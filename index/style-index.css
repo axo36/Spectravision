@@ -31,6 +31,12 @@
     border-radius: 10px;
 }
 
+.immg {
+  display: flex;          /* active Flexbox */
+  justify-content: center;/* centre les images horizontalement */
+  gap: 1rem;              /* espace entre les images */
+}
+
 .img-film2 {
     max-height: 150px;   /* taille contrôlée */
     width: auto;
@@ -294,6 +300,7 @@ button:hover {
   font-weight: bold;     /* gras */
   color: var(--text);    /* couleur du thème *
 }
+
 
 
 

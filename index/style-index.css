@@ -277,6 +277,14 @@ button:hover {
   cursor: pointer;
 }
 
+.tifi {
+  display: block;        /* occupe toute la largeur */
+  text-align: center;    /* centre le texte horizontalement */
+  margin: 1rem 0;        /* espace au-dessus et en dessous */
+  font-size: 1.5rem;     /* taille du texte */
+  font-weight: bold;     /* gras */
+  color: var(--text);    /* couleur du thème *
+}
 
 
 

@@ -40,7 +40,7 @@
 .bb {
   display: flex;              /* active Flexbox */
   justify-content: center;    /* centre horizontalement */
-  gap: 1rem;                  /* espace entre les boutons */
+  gap: 4rem;                  /* espace entre les boutons */
   margin-top: 2rem;    
 }
 
@@ -307,6 +307,7 @@ button:hover {
   font-weight: bold;     /* gras */
   color: var(--text);    /* couleur du thème *
 }
+
 
 
 

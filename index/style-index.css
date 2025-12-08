@@ -94,7 +94,7 @@ a:hover { text-decoration: underline; }
 /* Hero avec vidéo */
 .hero {
     position: relative;
-    height: 70vh;
+    height: 80vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -241,5 +241,6 @@ button:hover {
 /* Pages */
 .page { display: none; padding: 2rem; }
 .page.active { display: block; }
+
 
 

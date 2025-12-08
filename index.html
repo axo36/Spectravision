@@ -89,6 +89,16 @@
         <button onclick="login()">Se connecter</button>
       </div>
     </div>
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Inscription</h2>
+        <input type="text" id="signupName" placeholder="Nom complet">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPassword" placeholder="Mot de passe">
+        <button onclick="signup()">Créer un compte</button>
+      </div>
+    </div>
 </section>
 
   <!-- SCRIPT ENVOI EMAIL -->

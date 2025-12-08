@@ -242,5 +242,32 @@ button:hover {
 .page { display: none; padding: 2rem; }
 .page.active { display: block; }
 
+.modal {
+  display: none; /* caché par défaut */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6); /* voile sombre */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 320px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 
 

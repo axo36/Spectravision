@@ -22,6 +22,14 @@
     padding: 0;
     border-radius: 10px;
 }
+.img-film1 {
+    max-height: 150px;   /* taille contrôlée */
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
 
 /* Bloc logo + texte */
 .brand {
@@ -268,6 +276,7 @@ button:hover {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
 
 
 

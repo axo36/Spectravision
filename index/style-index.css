@@ -316,11 +316,13 @@ button:hover {
   position: relative;        /* reste en bas du contenu */
   margin-top: 2rem;          /* espace au-dessus */
   font-size: 0.9rem;
+  justify-content: center;
 }
 
 .footer p {
   margin: 0.3rem 0;
 }
+
 
 
 

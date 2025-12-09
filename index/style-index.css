@@ -308,6 +308,20 @@ button:hover {
   color: var(--text);    /* couleur du thème *
 }
 
+.site-footer {
+  background: #1e1e1e;       /* fond sombre */
+  color: #e0e0e0;            /* texte clair */
+  text-align: center;        /* centré */
+  padding: 1rem;             /* espace intérieur */
+  position: relative;        /* reste en bas du contenu */
+  margin-top: 2rem;          /* espace au-dessus */
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0.3rem 0;
+}
+
 
 
 

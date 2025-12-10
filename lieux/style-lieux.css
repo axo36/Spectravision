@@ -144,7 +144,7 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
   display: flex;
 }
-.button {
+button {
     background-color: #00bcd4;
     color: #121212;
     font-weight: bold;

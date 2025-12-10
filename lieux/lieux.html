@@ -1,47 +1,76 @@
-<section class="contact-map">
-  <div class="map-info">
-    <h2>📍 Où nous trouver</h2>
-    <p>Notre salle holographique vous accueille au cœur de Paris.</p>
-    <ul>
-      <li><strong>Adresse :</strong> 12 Rue de l’Innovation, 75010 Paris</li>
-      <li><strong>Téléphone :</strong> +33 1 23 45 67 89</li>
-      <li><strong>Email :</strong> contact@cinema-holo.fr</li>
-    </ul>
-  </div>
-
-  <div id="map"></div>
-</section>
-
-<!-- Script Google Maps -->
-<script>
-  function initMap() {
-    // Coordonnées exactes du lieu
-    var location = { lat: 48.872, lng: 2.35 }; // Exemple : Paris 10e
-
-    // Création de la carte
-    var map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
-      center: location,
-      styles: [
-        { elementType: "geometry", stylers: [{ color: "#1a1a2e" }] },
-        { elementType: "labels.text.fill", stylers: [{ color: "#00ffe0" }] },
-        { elementType: "labels.text.stroke", stylers: [{ color: "#0f0f1a" }] },
-        { featureType: "road", elementType: "geometry", stylers: [{ color: "#2a2a3e" }] },
-        { featureType: "water", elementType: "geometry", stylers: [{ color: "#0f2027" }] }
-      ]
-    });
-
-    // Ajout du marqueur
-    var marker = new google.maps.Marker({
-      position: location,
-      map: map,
-      title: "Salle Holographique"
-    });
-  }
-</script>
-
-<!-- API Google Maps (remplacez VOTRE_CLE_API par votre clé) -->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap">
-</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTRAVISION — MENU</title>
+  <link rel="stylesheet" href="index/style-index.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="asset/logoblack.png" alt="Logo Spectravision" class="logo-img" />
+      <div class="brand-text">
+        <h1>SPECTRAVISION</h1>
+        <p>Vivre le cinéma autrement</p>
+      </div>
+    </div>
+    <nav>
+      <a href="accueil.html" id="nav-accueil" class="active">Accueil</a>
+      <a href="films.html" id="nav-films">Films</a>
+      <a href="contact.html">Contact</a>
+      <a href="cinema/nos-cinema.html">Nos cinema</a>
+      <a href="lieux.html">Ou nous trouver ?</a>
+      <button onclick="openLogin()">Connexion</button>
+      <button onclick="openSignup()">Créer un compte</button>
+    </nav>
+  </header>
+  <section class="contact-map">
+    <div class="map-info">
+      <h2>📍 Où nous trouver</h2>
+      <p>Notre salle holographique vous accueille au cœur de Paris.</p>
+      <ul>
+        <li><strong>Adresse :</strong> 12 Rue de l’Innovation, 75010 Paris</li>
+        <li><strong>Téléphone :</strong> +33 1 23 45 67 89</li>
+        <li><strong>Email :</strong> contact@cinema-holo.fr</li>
+      </ul>
+    </div>
+  
+    <div id="map"></div>
+  </section>
+  
+  <!-- Script Google Maps -->
+  <script>
+    function initMap() {
+      // Coordonnées exactes du lieu
+      var location = { lat: 48.872, lng: 2.35 }; // Exemple : Paris 10e
+  
+      // Création de la carte
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: location,
+        styles: [
+          { elementType: "geometry", stylers: [{ color: "#1a1a2e" }] },
+          { elementType: "labels.text.fill", stylers: [{ color: "#00ffe0" }] },
+          { elementType: "labels.text.stroke", stylers: [{ color: "#0f0f1a" }] },
+          { featureType: "road", elementType: "geometry", stylers: [{ color: "#2a2a3e" }] },
+          { featureType: "water", elementType: "geometry", stylers: [{ color: "#0f2027" }] }
+        ]
+      });
+  
+      // Ajout du marqueur
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Salle Holographique"
+      });
+    }
+  </script>
+  
+  <!-- API Google Maps (remplacez VOTRE_CLE_API par votre clé) -->
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap">
+  </script>
+</body>
 

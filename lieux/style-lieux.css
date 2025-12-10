@@ -144,3 +144,13 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
   display: flex;
 }
+.button {
+    background-color: #00bcd4;
+    color: #121212;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}

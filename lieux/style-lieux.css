@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTRAVISION — MENU</title>
+  <link rel="stylesheet" href="index/style-index.css" />
+
+  <!-- Import EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
+    })();
+  </script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="asset/logoblack.png" alt="Logo Spectravision" class="logo-img" />
+      <div class="brand-text">
+        <h1>SPECTRAVISION</h1>
+        <p>Vivre le cinéma autrement</p>
+      </div>
+    </div>
+    <nav>
+      <a href="accueil.html" id="nav-accueil" class="active">Accueil</a>
+      <a href="films.html" id="nav-films">Films</a>
+      <a href="contact.html">Contact</a>
+      <a href="cinema/nos-cinema.html">Nos cinema</a>
+      <a href="lieux.html">Ou nous trouver ?</a>
+      <button onclick="openLogin()">Connexion</button>
+      <button onclick="openSignup()">Créer un compte</button>
+    </nav>
+  </header>

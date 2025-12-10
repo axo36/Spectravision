@@ -326,13 +326,14 @@ button:hover {
   justify-content: center;
 }
 
-.pa {
+.pb {
   text-align: right;  
 }
 
-.pb {
+.pa {
   text-align: left;
 }
+
 
 
 

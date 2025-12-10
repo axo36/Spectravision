@@ -118,3 +118,18 @@ a:hover { text-decoration: underline; }
 .btn { display: inline-block; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; }
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-secondary { background: var(--secondary); color: #0b0f1a; }
+
+.footerp {
+  margin: 0.3rem 0;
+  gap: 16px;
+  justify-content: center;
+}
+
+.pb {
+  text-align: right;  
+}
+
+.pa {
+  text-align: left;
+}
+

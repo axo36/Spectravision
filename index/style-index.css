@@ -322,8 +322,10 @@ button:hover {
 
 .footerp {
   margin: 0.3rem 0;
+  gap: 16px;
   justify-content: center;
 }
+
 
 
 

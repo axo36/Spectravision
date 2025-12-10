@@ -111,9 +111,7 @@ a:hover { text-decoration: underline; }
 
 /* Bloc droit : formulaire centré */
 .fg {
-    background: #1e1e2e;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,255,224,0.2);
 
     display: flex;
     flex-direction: column;

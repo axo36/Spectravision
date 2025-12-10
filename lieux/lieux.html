@@ -31,57 +31,22 @@
   <section class="contact-map">
     <div class="map-info">
       <h2>📍 Où nous trouver</h2>
-      <p>Notre salle holographique vous accueille au cœur de Paris.</p>
+      <p>Retrouvez-nous chez <strong>Pizza 500°</strong> au Vieux-Port de Marseille.</p>
       <ul>
-        <li><strong>Adresse :</strong> 12 Rue de l’Innovation, 75010 Paris</li>
-        <li><strong>Téléphone :</strong> +33 1 23 45 67 89</li>
-        <li><strong>Email :</strong> contact@cinema-holo.fr</li>
+        <li><strong>Adresse :</strong>cinema spectravision</li>
+        <li><strong>Téléphone :</strong> +33 4 91 00 00 00</li>
+        <li><strong>Email :</strong> contact@pizza500.fr</li>
       </ul>
     </div>
-    <div id="map"></div>
+
+    <!-- Carte intégrée sans API -->
+    <div class="map-frame">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11616.07158569183!2d5.355184155419929!3d43.292946899999976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c1f43f7d2157%3A0x5bb239d72f9b5613!2s500%20Degr%C3%A9s%20Pizza%20Marseille!5e0!3m2!1sfr!2sfr!4v1765377980065!5m2!1sfr!2sfr" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
   </section>
-
-  <!-- Script Google Maps -->
-  <script>
-    function initMap() {
-      // Coordonnées exactes du lieu
-      var location = { lat: 48.872, lng: 2.35 }; // Exemple : Paris 10e
-
-      // Création de la carte
-      var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
-        center: location,
-        styles: [
-          { elementType: "geometry", stylers: [{ color: "#1a1a2e" }] },
-          { elementType: "labels.text.fill", stylers: [{ color: "#00ffe0" }] },
-          { elementType: "labels.text.stroke", stylers: [{ color: "#0f0f1a" }] },
-          { featureType: "road", elementType: "geometry", stylers: [{ color: "#2a2a3e" }] },
-          { featureType: "water", elementType: "geometry", stylers: [{ color: "#0f2027" }] }
-        ]
-      });
-
-      // Ajout du marqueur
-      var marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: "Salle Holographique"
-      });
-
-      // Petite fenêtre d’info (InfoWindow)
-      var infoWindow = new google.maps.InfoWindow({
-        content: "<div style='color:#000; font-size:14px;'><strong>Salle Holographique</strong><br>12 Rue de l’Innovation<br>75010 Paris</div>"
-      });
-
-      infoWindow.open(map, marker);
-      marker.addListener("click", function() {
-        infoWindow.open(map, marker);
-      });
-    }
-  </script>
-
-  <!-- API Google Maps (remplacez VOTRE_CLE_API par votre clé) -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap">
-  </script>
 </body>
 </html>

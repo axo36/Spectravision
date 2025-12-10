@@ -300,12 +300,12 @@ button:hover {
 }
 
 .tifi {
-  display: block;        /* occupe toute la largeur */
-  text-align: center;    /* centre le texte horizontalement */
-  margin: 1rem 0;        /* espace au-dessus et en dessous */
-  font-size: 1.5rem;     /* taille du texte */
-  font-weight: bold;     /* gras */
-  color: var(--text);    /* couleur du thème *
+  display: block;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text);
 }
 
 .footer {
@@ -324,6 +324,7 @@ button:hover {
   margin: 0.3rem 0;
   justify-content: center;
 }
+
 
 
 

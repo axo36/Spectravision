@@ -154,3 +154,8 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
+
+.fg {
+    display: block;
+    float: right;
+}

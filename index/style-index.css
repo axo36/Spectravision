@@ -317,12 +317,14 @@ button:hover {
   margin-top: 2rem;          /* espace au-dessus */
   font-size: 0.9rem;
   justify-content: center;
+  display: flex;
 }
 
 .footerp {
   margin: 0.3rem 0;
   justify-content: center;
 }
+
 
 
 

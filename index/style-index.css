@@ -319,9 +319,11 @@ button:hover {
   justify-content: center;
 }
 
-.footer p {
+.footerp {
   margin: 0.3rem 0;
+  justify-content: center;
 }
+
 
 
 

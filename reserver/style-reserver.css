@@ -128,3 +128,113 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
+
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: black;
+    align-items: center;
+}
+.topbar nav a {
+    margin-left: 20px;
+    color: #ccc;
+    text-decoration: none;
+}
+.topbar nav a:hover {
+    color: white;
+}
+
+/* Hero */
+.hero {
+    padding: 60px;
+    background: url('https://via.placeholder.com/1600x400') center/cover no-repeat;
+}
+.hero h1 {
+    font-size: 42px;
+    margin: 0;
+}
+.tags span {
+    background: #ffcc00;
+    color: black;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Date selector */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+#dates {
+    display: flex;
+    gap: 10px;
+}
+#dates div {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#dates div.active {
+    background: #ffcc00;
+    color: black;
+}
+
+/* Films */
+.films {
+    padding: 40px;
+}
+.film {
+    display: flex;
+    margin-bottom: 25px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+}
+.film img {
+    border-radius: 6px;
+}
+.film .info {
+    margin-left: 20px;
+}
+.genre {
+    color: #bbb;
+}
+
+/* Horaires */
+.horaires {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.slot {
+    padding: 8px 12px;
+    background: #333;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.slot:hover {
+    background: #555;
+}
+.slot.vip {
+    background: #c59bff;
+}
+.slot.imax {
+    background: #4cb2f7;
+}
+.slot.vost {
+    background: #f78a4c;
+}

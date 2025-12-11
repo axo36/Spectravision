@@ -161,6 +161,7 @@ body {
 .hero h1 {
     font-size: 42px;
     margin: 0;
+    font-family: "Bebas Neue", sans-serif;
 }
 .tags span {
     background: #ffcc00;

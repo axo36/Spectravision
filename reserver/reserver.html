@@ -34,9 +34,67 @@
       <button onclick="openSignup()">Créer un compte</button>
     </nav>
   </header>
-  <section>
+  
+<section class="hero">
+    <h1>CinéMax – La Valette</h1>
+    <div class="tags">
+        <span>IMAX</span>
+        <span>4DX</span>
+    </div>
+</section>
 
-  </section>
+<section class="date-selector">
+    <button id="prev">◀</button>
+    <div id="dates"></div>
+    <button id="next">▶</button>
+</section>
+
+<section class="films">
+    
+    <!-- FILM MODEL (généré en JS si tu veux) -->
+    <div class="film">
+        <img src="https://via.placeholder.com/120x160" alt="">
+        <div class="info">
+            <h2>Rolling Stones – At The Max</h2>
+            <p class="genre">Musical • 1h33</p>
+
+            <div class="horaires">
+                <div class="slot imax">19:15</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="film">
+        <img src="https://via.placeholder.com/120x160" alt="">
+        <div class="info">
+            <h2>Il était une fois… Le Parrain 2e partie</h2>
+            <p class="genre">Drame, Policier • 3h32</p>
+
+            <div class="horaires">
+                <div class="slot vost">20:00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="film">
+        <img src="https://via.placeholder.com/120x160" alt="">
+        <div class="info">
+            <h2>Chasse gardée 2</h2>
+            <p class="genre">Comédie • 1h40</p>
+
+            <div class="horaires">
+                <div class="slot">10:30</div>
+                <div class="slot">13:00</div>
+                <div class="slot">15:15</div>
+                <div class="slot">17:30</div>
+                <div class="slot vip">19:15</div>
+                <div class="slot">19:45</div>
+                <div class="slot">22:00</div>
+            </div>
+        </div>
+    </div>
+
+</section>
 </body>
 </html>
 

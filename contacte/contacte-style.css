@@ -14,7 +14,6 @@
 * { box-sizing: border-box; }
 html, body {
     margin: 0;
-    font-size: 18px;
     padding: 0;
     background: var(--bg);
     color: var(--text);
@@ -93,7 +92,7 @@ a:hover { text-decoration: underline; }
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0,255,224,0.2);
-
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* centre verticalement */

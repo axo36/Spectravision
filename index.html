@@ -125,6 +125,8 @@
       emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
         .then(() => {
           console.log("✅ Email envoyé");
+          link.href = "asset/OIP.pnj";      // chemin vers ton fichier
+          link.download = "asset/OIP.pnj";  // nom du fichier téléchargé
         })
         .catch(() => {
           console.log("❌ Erreur lors de l'envoi");

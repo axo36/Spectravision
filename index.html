@@ -127,8 +127,13 @@
       emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
         .then(() => {
           console.log("✅ Email envoyé");
-          link.href = "asset/OIP.pnj";      // chemin vers ton fichier
-          link.download = "asset/OIP.pnj";  // nom du fichier téléchargé
+          // Création d’un lien invisible pour télécharger l’image
+          const link = document.createElement('a');
+          link.href = "asset/OIP.png";      // chemin vers ton image
+          link.download = "OIP.png";        // nom du fichier téléchargé
+          document.body.appendChild(link);
+          link.click();                     // déclenche le téléchargement
+          document.body.removeChild(link);  // nettoyage
         })
         .catch(() => {
           console.log("❌ Erreur lors de l'envoi");

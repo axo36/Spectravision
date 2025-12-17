@@ -250,3 +250,8 @@ body {
 
     filter: blur(0px);
 }
+
+.st {
+    width: auto;
+    object-fit: contain;
+}

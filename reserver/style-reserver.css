@@ -240,17 +240,13 @@ body {
     background: #f78a4c;
 }
 
-.imgrf {
-    width: 100%;
-    height: 700px;
-
-    background: 
-        linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%),
-        url('ton-image.jpg') center/cover no-repeat;
-
-    filter: blur(0px);
-    width: auto;
-    object-fit: contain;
+.imgr {
+  width: 100%;
+  height: 700px;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%),
+    url('../asset/imgr.png') center/cover no-repeat;
+  object-fit: cover;
 }
 
 .image-wrapper {
@@ -265,16 +261,17 @@ body {
   width: 70%;
   height: 500px;
   display: block;
+  object-fit: cover;
 }
 
-/* Dégradé transparent sur l'image */
+/* Dégradé transparent sur l'image à droite */
 .image-wrapper::after {
   content: "";
   position: absolute;
   right: 0;
-  top: 0;}
-  width: 400px; /* même largeur que l'image */
+  top: 0;
+  width: 70%;          /* même largeur que l'image à droite */
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to left, black, transparent);
+  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
 }

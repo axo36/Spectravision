@@ -262,7 +262,8 @@ body {
 /* Image alignée à droite */
 .img-right {
   float: right;
-  width: 400px; /* change la taille si tu veux */
+  width: 70%;
+  height: 500px;
   display: block;
 }
 
@@ -271,8 +272,9 @@ body {
   content: "";
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0;}
   width: 400px; /* même largeur que l'image */
   height: 100%;
   pointer-events: none;
   background: linear-gradient(to left, black, transparent);
+}

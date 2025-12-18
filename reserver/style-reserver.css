@@ -249,9 +249,7 @@ body {
         url('ton-image.jpg') center/cover no-repeat;
 
     filter: blur(0px);
-}
-
-.st {
     width: auto;
     object-fit: contain;
 }
+

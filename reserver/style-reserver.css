@@ -260,17 +260,17 @@ body {
   float: right;
   width: 70%;
   height: 500px;
-  display: block;
   object-fit: cover;
+  display: block;
 }
 
-/* Dégradé transparent sur l'image à droite */
+/* Dégradé transparent sur l'image */
 .image-wrapper::after {
   content: "";
   position: absolute;
-  right: 0;
   top: 0;
-  width: 70%;          /* même largeur que l'image à droite */
+  right: 0;
+  width: 70%; /* même largeur que l'image */
   height: 100%;
   pointer-events: none;
   background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));

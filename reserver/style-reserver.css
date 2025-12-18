@@ -10,7 +10,7 @@
 }
 
 /* Partie gauche */
-.hero-content {
+.hero-left {
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
   font-size: 14px;
 }
 
-.hero-buttons {
+.hero-actions {
   display: flex;
   gap: 12px;
 }
@@ -67,7 +67,7 @@
 }
 
 /* Partie droite */
-.hero-image {
+.hero-right {
   position: absolute;
   top: 0;
   right: 0;
@@ -76,21 +76,22 @@
   overflow: hidden;
 }
 
-.hero-image img {
+.hero-right img {
   height: 100%;
+  width: auto;
   object-fit: cover;
   float: right;
 }
 
-/* Dégradé noir à gauche */
-.hero-image::before {
+/* Dégradé noir sur la gauche de l’image */
+.hero-right::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  width: 180px;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(to right, #000, transparent);
+  background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.6), rgba(0,0,0,0.2), rgba(0,0,0,0));
   z-index: 1;
 }
 

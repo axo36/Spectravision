@@ -1,185 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-:root {
-    --bg: #0b0f1a;
-    --panel: #121829;
-    --text: #e7ecf3;
-    --muted: #9fb0c6;
-    --primary: #4f7cff;
-    --secondary: #00d4aa;
-    --card: #182135;
-}
-
-/* RESET */
-* { box-sizing: border-box; }
-html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Montserrat', sans-serif;
-}
-a { color: var(--secondary); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* LOGO */
-.logo-img {
-    max-height: 50px;
-    width: auto;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-/* HEADER */
-.topbar {
-    background-color: #1e1e1e;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #010101;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    height: 70px;
-}
-.topbar nav a {
-    color: #b0b0b0;
-    margin-left: 1rem;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-.topbar nav a.active,
-.topbar nav a:hover {
-    color: #00bcd4;
-    background: var(--card);
-}
-
-/* HERO — IMAGE À DROITE + DÉGRADÉ + TEXTE À GAUCHE */
+/* HERO STYLE PATHÉ — VERSION SPECTRAVISION */
 .hero {
-    position: relative;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 60px;
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 380px;
+  padding: 50px 60px;
+  background: #000;
+  overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 48px;
-    margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    z-index: 2;
+/* TEXTE À GAUCHE */
+.hero-left {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.tags span {
-    background: #ffcc00;
-    color: black;
-    padding: 6px 12px;
-    margin-right: 10px;
-    border-radius: 4px;
-    z-index: 2;
+.hero-location {
+  font-size: 18px;
+  color: #cfcfcf;
+  margin: 0;
 }
 
-/* CONTENEUR IMAGE */
-.image-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 60%;
-    overflow: hidden;
+.hero-title {
+  font-size: 42px;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* IMAX + 4DX */
+.hero-tags {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-tags span {
+  background: #111;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* BOUTONS */
+.hero-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-fav,
+.btn-info {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-fav:hover,
+.btn-info:hover {
+  background: #333;
 }
 
 /* IMAGE À DROITE */
-.img-right {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    float: right;
-    display: block;
+.hero-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
 }
 
-/* DÉGRADÉ NOIR → TRANSPARENT */
-.image-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0));
-    pointer-events: none;
+.hero-right img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  float: right;
 }
 
-/* DATE SELECTOR */
-.date-selector {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-.date-selector button {
-    background: #222;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: none;
-    margin: 0 5px;
-    cursor: pointer;
-}
-.date-selector button:hover {
-    background: #ffcc00;
-    color: black;
-}
-
-/* FILMS */
-.films {
-    padding: 40px;
-}
-.film {
-    display: flex;
-    margin-bottom: 25px;
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 8px;
-}
-.film img {
-    border-radius: 6px;
-}
-.film .info {
-    margin-left: 20px;
-}
-.genre {
-    color: #bbb;
-}
-
-/* HORAIRES */
-.horaires {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-.slot {
-    padding: 8px 12px;
-    background: #333;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.slot:hover { background: #555; }
-.slot.vip { background: #c59bff; }
-.slot.imax { background: #4cb2f7; }
-.slot.vost { background: #f78a4c; }
-
-/* FOOTER */
-.footer {
-    background: #1e1e1e;
-    color: #e0e0e0;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
+/* DÉGRADÉ EXACT PATHÉ */
+.hero-right::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(to right, #000, transparent);
+  z-index: 1;
 }

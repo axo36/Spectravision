@@ -1,4 +1,44 @@
 
+/* Logo */
+.logo-img {
+    max-height: 50px;   /* taille contrôlée */
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+.img-film1 {
+    max-height: 350px;   /* taille contrôlée */
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.immg {
+  display: flex;          /* active Flexbox */
+  justify-content: center;/* centre les images horizontalement */
+  gap: 1rem;              /* espace entre les images */
+}
+
+.bb {
+  display: flex;              /* active Flexbox */
+  justify-content: center;    /* centre horizontalement */
+  gap: 4rem;                  /* espace entre les boutons */
+  margin-top: 2rem;    
+}
+
+.img-film2 {
+    max-height: 350px;   /* taille contrôlée */
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+
 /* Reset */
 * { box-sizing: border-box; }
 html, body {

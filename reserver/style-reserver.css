@@ -155,9 +155,30 @@ body {
 
 /* Hero */
 .hero {
-    padding: 60px;
-    background: url('https://via.placeholder.com/1600x400') center/cover no-repeat;
+  position: relative;
+  height: 400px;
+
+  /* 1er calque : dégradé noir -> transparent
+     2e calque : l'image */
+  background-image:
+    linear-gradient(to left, rgba(0,0,0,0.9), rgba(0,0,0,0)),
+    url('../asset/imgr.png');
+
+  /* les 2 calques sont à droite */
+  background-position:
+    right center,
+    right center;
+
+  /* taille : le dégradé prend 40% de la largeur, l'image couvre */
+  background-size:
+    40% 100%,
+    cover;
+
+  background-repeat:
+    no-repeat,
+    no-repeat;
 }
+
 .hero h1 {
     font-size: 42px;
     margin: 0;

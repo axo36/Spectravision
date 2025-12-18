@@ -93,3 +93,68 @@
   background: linear-gradient(to right, #000, transparent);
   z-index: 1;
 }
+
+
+/* Reset */
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--secondary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Logo */
+.logo-img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Bloc logo + texte */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.brand-text h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text);
+}
+.brand-text p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Header */
+.topbar {
+    background-color: #1e1e1e;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #010101;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 70px; /* barre compacte */
+}
+.topbar nav a {
+    color: #b0b0b0;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+}
+.topbar nav a.active,
+.topbar nav a:hover {
+    color: #00bcd4;
+    background: var(--card);
+}

@@ -1,20 +1,58 @@
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-location">Marseille</p>
-    <h1 class="hero-title">CINÉMAX SPECTRAVISION</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTRAVISION — MENU</title>
+  <link rel="stylesheet" href="index/style-index.css" />
 
-    <div class="hero-tags">
-      <span class="tag">IMAX</span>
-      <span class="tag">4DX</span>
+  <!-- Import EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("XNSIQz9FjiHtVcuuL"); // ⚠️ Mets ta clé publique EmailJS
+    })();
+  </script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="asset/logoblack.png" alt="Logo Spectravision" class="logo-img" />
+      <div class="brand-text">
+        <h1>SPECTRAVISION</h1>
+        <p>Vivre le cinéma autrement</p>
+      </div>
     </div>
-
-    <div class="hero-buttons">
-      <button class="btn fav"><span>❤️</span> Favoris</button>
-      <button class="btn info">Infos pratiques ></button>
+    <nav>
+      <a href="index.html" id="nav-accueil" class="active">Accueil</a>
+      <a href="reserver/reserver.html" id="nav-films">Films</a>
+      <a href="contacte/contacte.html">Contact</a>
+      <a href="cinema/nos-cinema.html">Nos cinema</a>
+      <a href="lieux/lieux.html">Ou nous trouver ?</a>
+      <button onclick="openLogin()">Connexion</button>
+      <button onclick="openSignup()">Créer un compte</button>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-location">Marseille</p>
+      <h1 class="hero-title">CINÉMAX SPECTRAVISION</h1>
+  
+      <div class="hero-tags">
+        <span class="tag">IMAX</span>
+        <span class="tag">4DX</span>
+      </div>
+  
+      <div class="hero-buttons">
+        <button class="btn fav"><span>❤️</span> Favoris</button>
+        <button class="btn info">Infos pratiques ></button>
+      </div>
     </div>
-  </div>
-
-  <div class="hero-image">
-    <img src="../asset/imgr.png" alt="Spectravision Marseille">
-  </div>
-</section>
+  
+    <div class="hero-image">
+      <img src="../asset/imgr.png" alt="Spectravision Marseille">
+    </div>
+  </section>
+</body>
+</html>

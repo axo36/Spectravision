@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
     --bg: #0b0f1a;
@@ -10,19 +11,19 @@
     --card: #182135;
 }
 
-/* Reset */
+/* RESET */
 * { box-sizing: border-box; }
 html, body {
     margin: 0;
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 a { color: var(--secondary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Logo */
+/* LOGO */
 .logo-img {
     max-height: 50px;
     width: auto;
@@ -30,24 +31,7 @@ a:hover { text-decoration: underline; }
     border-radius: 10px;
 }
 
-/* Bloc logo + texte */
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-.brand-text h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--text);
-}
-.brand-text p {
-    font-size: 0.8rem;
-    margin: 0;
-    color: var(--muted);
-}
-
-/* Header */
+/* HEADER */
 .topbar {
     background-color: #1e1e1e;
     padding: 1rem 2rem;
@@ -58,15 +42,14 @@ a:hover { text-decoration: underline; }
     position: sticky;
     top: 0;
     z-index: 10;
-    height: 70px; /* barre compacte */
+    height: 70px;
 }
 .topbar nav a {
     color: #b0b0b0;
     margin-left: 1rem;
-    text-decoration: none;
-    transition: color 0.3s;
     padding: 0.4rem 0.6rem;
     border-radius: 6px;
+    transition: 0.3s;
 }
 .topbar nav a.active,
 .topbar nav a:hover {
@@ -74,147 +57,85 @@ a:hover { text-decoration: underline; }
     background: var(--card);
 }
 
-/* Section contact : deux colonnes égales étirées */
-.contact-map {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* égalité gauche/droite */
-    gap: 2rem;
-    height: calc(100vh - 70px); /* occupe toute la hauteur sauf la barre */
-    padding: 3rem;
-    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
-    color: #e0e0e0;
-    border-radius: 12px;
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-    .contact-map {
-        grid-template-columns: 1fr;
-        height: auto; /* sur mobile, pas besoin d'étirer */
-    }
-}
-
-/* Boutons génériques */
-.btn { display: inline-block; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; }
-.btn-primary { background: var(--primary); color: #fff; }
-.btn-secondary { background: var(--secondary); color: #0b0f1a; }
-
-/* Footer */
-.footerp {
-  margin: 0.3rem 0;
-  gap: 16px;
-  justify-content: center;
-}
-.pb { text-align: right; }
-.pa { text-align: left; }
-.footer {
-  background: #1e1e1e;
-  color: #e0e0e0;
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  justify-content: space-between;
-  display: flex;
-}
-button {
-    background-color: #00bcd4;
-    color: #121212;
-    font-weight: bold;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-body {
-    margin: 0;
-    background: #0d0d0d;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-/* Topbar */
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 30px;
-    background: black;
-    align-items: center;
-}
-.topbar nav a {
-    margin-left: 20px;
-    color: #ccc;
-    text-decoration: none;
-}
-.topbar nav a:hover {
-    color: white;
-}
-
-/* Hero */
+/* HERO — IMAGE À DROITE + DÉGRADÉ + TEXTE À GAUCHE */
 .hero {
-  position: relative;
-  height: 400px;
-
-  /* 1er calque : dégradé noir -> transparent
-     2e calque : l'image */
-  background-image:
-    linear-gradient(to left, rgba(0,0,0,0.9), rgba(0,0,0,0)),
-    url('../asset/imgr.png');
-
-  /* les 2 calques sont à droite */
-  background-position:
-    right center,
-    right center;
-
-  /* taille : le dégradé prend 40% de la largeur, l'image couvre */
-  background-size:
-    40% 100%,
-    cover;
-
-  background-repeat:
-    no-repeat,
-    no-repeat;
+    position: relative;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+    overflow: hidden;
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
     margin: 0;
     font-family: "Bebas Neue", sans-serif;
+    z-index: 2;
 }
+
 .tags span {
     background: #ffcc00;
     color: black;
     padding: 6px 12px;
     margin-right: 10px;
     border-radius: 4px;
+    z-index: 2;
 }
 
-/* Date selector */
+/* CONTENEUR IMAGE */
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    overflow: hidden;
+}
+
+/* IMAGE À DROITE */
+.img-right {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    float: right;
+    display: block;
+}
+
+/* DÉGRADÉ NOIR → TRANSPARENT */
+.image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    pointer-events: none;
+}
+
+/* DATE SELECTOR */
 .date-selector {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 20px;
 }
-#dates {
-    display: flex;
-    gap: 10px;
-}
-#dates div {
+.date-selector button {
     background: #222;
+    color: white;
     padding: 10px 15px;
     border-radius: 6px;
+    border: none;
+    margin: 0 5px;
     cursor: pointer;
 }
-#dates div.active {
+.date-selector button:hover {
     background: #ffcc00;
     color: black;
 }
 
-/* Films */
+/* FILMS */
 .films {
     padding: 40px;
 }
@@ -235,7 +156,7 @@ body {
     color: #bbb;
 }
 
-/* Horaires */
+/* HORAIRES */
 .horaires {
     display: flex;
     gap: 10px;
@@ -248,51 +169,17 @@ body {
     border-radius: 6px;
     cursor: pointer;
 }
-.slot:hover {
-    background: #555;
-}
-.slot.vip {
-    background: #c59bff;
-}
-.slot.imax {
-    background: #4cb2f7;
-}
-.slot.vost {
-    background: #f78a4c;
-}
+.slot:hover { background: #555; }
+.slot.vip { background: #c59bff; }
+.slot.imax { background: #4cb2f7; }
+.slot.vost { background: #f78a4c; }
 
-.imgr {
-  width: 100%;
-  height: 700px;
-  background:
-    linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%),
-    url('../asset/imgr.png') center/cover no-repeat;
-  object-fit: cover;
-}
-
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-/* Image alignée à droite */
-.img-right {
-  float: right;
-  width: 70%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-}
-
-/* Dégradé transparent sur l'image */
-.image-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 70%; /* même largeur que l'image */
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+/* FOOTER */
+.footer {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }

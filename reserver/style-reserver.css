@@ -201,3 +201,21 @@ a:hover { text-decoration: underline; }
   z-index: 1;
 }
 
+
+.tw\:object-cover {
+    object-fit: cover !important;
+}
+
+.tw\:w-full {
+    width: 100% !important;
+}
+
+.tw\:h-full {
+    height: 100% !important;
+}
+
+@media (width < 1080px) {
+    .tw\:max-lg\:opacity-30 {
+        opacity: 30% !important;
+    }
+}

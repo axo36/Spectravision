@@ -1,42 +1,15 @@
 
-/* Logo */
-.logo-img {
-    max-height: 50px;   /* taille contrôlée */
-    width: auto;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-    border-radius: 10px;
-}
-.img-film1 {
-    max-height: 350px;   /* taille contrôlée */
-    width: auto;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-    border-radius: 10px;
-}
 
-.immg {
-  display: flex;          /* active Flexbox */
-  justify-content: center;/* centre les images horizontalement */
-  gap: 1rem;              /* espace entre les images */
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-.bb {
-  display: flex;              /* active Flexbox */
-  justify-content: center;    /* centre horizontalement */
-  gap: 4rem;                  /* espace entre les boutons */
-  margin-top: 2rem;    
-}
-
-.img-film2 {
-    max-height: 350px;   /* taille contrôlée */
-    width: auto;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-    border-radius: 10px;
+:root {
+    --bg: #0b0f1a;
+    --panel: #121829;
+    --text: #e7ecf3;
+    --muted: #9fb0c6;
+    --primary: #4f7cff;
+    --secondary: #00d4aa;
+    --card: #182135;
 }
 
 /* Reset */
@@ -74,6 +47,76 @@ a:hover { text-decoration: underline; }
     font-size: 0.8rem;
     margin: 0;
     color: var(--muted);
+}
+
+/* Header */
+.topbar {
+    background-color: #1e1e1e;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #010101;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 70px; /* barre compacte */
+}
+.topbar nav a {
+    color: #b0b0b0;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+}
+.topbar nav a.active,
+.topbar nav a:hover {
+    color: #00bcd4;
+    background: var(--card);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .contact-map {
+        grid-template-columns: 1fr;
+        height: auto; /* sur mobile, pas besoin d'étirer */
+    }
+}
+
+/* Boutons génériques */
+.btn { display: inline-block; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-secondary { background: var(--secondary); color: #0b0f1a; }
+
+/* Footer */
+.footerp {
+  margin: 0.3rem 0;
+  gap: 16px;
+  justify-content: center;
+}
+.pb { text-align: right; }
+.pa { text-align: left; }
+.footer {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  justify-content: space-between;
+  display: flex;
+}
+button {
+    background-color: #00bcd4;
+    color: #121212;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 /* Header */

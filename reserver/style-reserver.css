@@ -248,6 +248,9 @@ button {
     object-fit: cover;
 }
 
+.tw\:object-center {
+     margin: 0 auto;
+}
 .tw\:w-full {
     width: 100%;
 }

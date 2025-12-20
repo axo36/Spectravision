@@ -283,6 +283,16 @@ button {
     bottom: 0;
 }
 
+.tech, .tech svg, .icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    speak: none;
+}
+
 .tw\:absolute, .tw\:absolute\! {
     position: absolute;
 }

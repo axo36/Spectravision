@@ -227,7 +227,6 @@ button {
 
 .hero-right img {
   height: 100%;
-  width: auto;
   object-fit: cover;
   float: right;
 }

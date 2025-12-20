@@ -262,3 +262,11 @@ button {
         opacity: 30% !important;
     }
 }
+
+.tw\:w-full {
+    width: 100% !important;
+}
+
+.tw\:h-\[47\%\] {
+    height: 47% !important;
+}

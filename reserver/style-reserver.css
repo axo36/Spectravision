@@ -270,3 +270,20 @@ button {
 .tw\:h-\[47\%\] {
     height: 47% !important;
 }
+
+.tw\:z-10 {
+    z-index: 10 !important;
+}
+
+.tw\:left-0 {
+    left: calc(var(--tw-spacing) * 0) !important;
+}
+
+.tw\:bottom-0 {
+    bottom: calc(var(--tw-spacing) * 0) !important;
+}
+
+.tw\:absolute, .tw\:absolute\! {
+    position: absolute !important;
+}
+

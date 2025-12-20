@@ -302,6 +302,9 @@ button {
   filter: brightness(0) invert(1); /* transforme le PNG en blanc */
 }
 
+.footer { background: var(--panel); padding: 1.2rem 0; border-top: 1px solid #1f263d; }
+.footer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.footer p { color: var(--muted); }
 
 
 .tw\:absolute, .tw\:absolute\! {

@@ -283,20 +283,15 @@ button {
     bottom: 0;
 }
 
-/* Pour tous les logos techniques (PNG ou SVG) */
 .tech, .icon {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    speak: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  speak: none;
+  height: 1.2em; /* ou fixe : 30px, selon ton layout */
+  width: auto;
 }
 
-/* Spécifique aux SVG uniquement */
-.tech svg, .icon svg {
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-}
 
 
 .tw\:absolute, .tw\:absolute\! {

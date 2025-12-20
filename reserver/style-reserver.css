@@ -246,44 +246,44 @@ button {
 
 
 .tw\:object-cover {
-    object-fit: cover !important;
+    object-fit: cover;
 }
 
 .tw\:w-full {
-    width: 100% !important;
+    width: 100%;
 }
 
 .tw\:h-full {
-    height: 100% !important;
+    height: 100%;
 }
 
 @media (width < 1080px) {
     .tw\:max-lg\:opacity-30 {
-        opacity: 30% !important;
+        opacity: 30%;
     }
 }
 
 .tw\:w-full {
-    width: 100% !important;
+    width: 100%;
 }
 
 .tw\:h-\[47\%\] {
-    height: 47% !important;
+    height: 47%;
 }
 
 .tw\:z-10 {
-    z-index: 10 !important;
+    z-index: 10;
 }
 
 .tw\:left-0 {
-    left: calc(var(--tw-spacing) * 0) !important;
+    left: calc(var(--tw-spacing) * 0);
 }
 
 .tw\:bottom-0 {
-    bottom: calc(var(--tw-spacing) * 0) !important;
+    bottom: 0;
 }
 
 .tw\:absolute, .tw\:absolute\! {
-    position: absolute !important;
+    position: absolute;
 }
 

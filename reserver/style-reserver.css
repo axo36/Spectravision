@@ -285,8 +285,8 @@ button {
 .tech-button {
   background-color: #2a2a2a; /* gris foncé */
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 13px 0px;
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -296,7 +296,7 @@ button {
 
 /* Le PNG devient blanc */
 .tech-logo {
-  height: 70%; /* petit, proportionnel */
+  height: 1300%; /* petit, proportionnel */
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1); /* transforme le PNG en blanc */

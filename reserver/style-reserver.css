@@ -349,8 +349,8 @@ button {
 
 .date-btn.active {
   padding-inline: 25rem * 4;
-  border-color: 255, 255, 255, .1;
+  border-color: #38393a;
   border-width: 1px;
   border-radius: 375rem;
-  background-color: 255, 255, 255, .1;
+  background-color: #222324;
 }

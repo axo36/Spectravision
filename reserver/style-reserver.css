@@ -350,6 +350,6 @@ button {
 
 .date-btn.active {
   padding-inline: 1rem;
-  border-color: #38393a;
+  border-color: #fff;
   background-color: #222324;
 }

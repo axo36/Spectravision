@@ -340,7 +340,7 @@ button {
   height: 40px;
   background-color: #000;
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -354,6 +354,7 @@ button {
 .arrow:hover {
   background-color: #222;
 }
+
 
 .dates {
   display: flex;

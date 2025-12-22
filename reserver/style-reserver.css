@@ -336,20 +336,17 @@ button {
 }
 
 .arrow {
+  all: unset;
   width: 40px;
   height: 40px;
   background-color: #000;
-  color: #fff;
-  font-size: 22px;
-  font-weight: bold;
-  border: none;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
+
 
 .arrow:hover {
   background-color: #222;
@@ -363,6 +360,7 @@ button {
 }
 
 .date-btn {
+  all: unset;
   padding: 10px 14px;
   border: 1px solid #38393a;
   border-radius: 0.4rem;
@@ -371,6 +369,7 @@ button {
   color: #fff;
   white-space: nowrap;
   font-weight: bold;
+  display: inline-block;
 }
 
 .date-btn.active {

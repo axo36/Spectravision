@@ -3,8 +3,8 @@ const visibleCount = 9;
 let startIndex = 0;
 
 function formatDateLabel(date, index) {
-  const jours = ["DIM.", "LUN.", "MAR.", "MER.", "JEU.", "VEN.", "SAM."];
-  const mois = ["JANV.", "FÉVR.", "MARS", "AVR.", "MAI", "JUIN", "JUIL.", "AOÛT", "SEPT.", "OCT.", "NOV.", "DÉC."];
+  const jours = ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."];
+  const mois = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
 
   if (index === 0) return "Aujourd'hui";
   if (index === 1) return "Demain";

@@ -47,19 +47,89 @@
     </div>
   </section>
   <section>
-  <div class="date-selector">
-    <button class="arrow" onclick="scrollDates(-1)">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path d="m14.7633 16.6987c-.3859.3951-1.0191.4026-1.4142.0167l-4.0955-4c-.19266-.1882-.30128-.4461-.30128-.7154s.10862-.5272.30128-.7154l4.0955-4c.3951-.38589 1.0283-.37842 1.4142.01669.3858.3951.3784 1.02822-.0167 1.41411l-3.3631 3.2846 3.3631 3.2846c.3951.3859.4025 1.019.0167 1.4141z"/>
-      </svg>
-    </button>
-    <div class="dates" id="dates"></div>
-    <button class="arrow" onclick="scrollDates(1)">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="transform: rotate(180deg);">
-        <path d="m14.7633 16.6987c-.3859.3951-1.0191.4026-1.4142.0167l-4.0955-4c-.19266-.1882-.30128-.4461-.30128-.7154s.10862-.5272.30128-.7154l4.0955-4c.3951-.38589 1.0283-.37842 1.4142.01669.3858.3951.3784 1.02822-.0167 1.41411l-3.3631 3.2846 3.3631 3.2846c.3951.3859.4025 1.019.0167 1.4141z"/>
-      </svg>
-    </button>
-  </div>
+    <div class="date-selector">
+      <button class="arrow" onclick="scrollDates(-1)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+          <path d="m14.7633 16.6987c-.3859.3951-1.0191.4026-1.4142.0167l-4.0955-4c-.19266-.1882-.30128-.4461-.30128-.7154s.10862-.5272.30128-.7154l4.0955-4c.3951-.38589 1.0283-.37842 1.4142.01669.3858.3951.3784 1.02822-.0167 1.41411l-3.3631 3.2846 3.3631 3.2846c.3951.3859.4025 1.019.0167 1.4141z"/>
+        </svg>
+      </button>
+      <div class="dates" id="dates"></div>
+      <button class="arrow" onclick="scrollDates(1)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="transform: rotate(180deg);">
+          <path d="m14.7633 16.6987c-.3859.3951-1.0191.4026-1.4142.0167l-4.0955-4c-.19266-.1882-.30128-.4461-.30128-.7154s.10862-.5272.30128-.7154l4.0955-4c.3951-.38589 1.0283-.37842 1.4142.01669.3858.3951.3784 1.02822-.0167 1.41411l-3.3631 3.2846 3.3631 3.2846c.3951.3859.4025 1.019.0167 1.4141z"/>
+        </svg>
+      </button>
+    </div>
+    </section>
+    <section class="movie-session-card">
+    <header class="movie-session-header">
+      <div>
+        <h2 class="movie-title">Avatar : de feu et de cendres</h2>
+        <p class="movie-meta">Science-fiction • 3h17</p>
+      </div>
+      <div class="movie-tags">
+        <span class="tag-format">3D</span>
+        <span class="tag-format">VIP</span>
+        <span class="tag-format">IMAX 3D HFR</span>
+        <span class="tag-format">4DX 3D</span>
+      </div>
+    </header>
+  
+    <div class="sessions-row">
+      <!-- 19:30 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">19:30</span>
+          <span class="session-version">3D • VF</span>
+        </div>
+        <span class="session-end">Fin vers 23:07</span>
+      </button>
+  
+      <!-- 20:30 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">20:30</span>
+          <span class="session-version">3D • VF</span>
+        </div>
+        <span class="session-end">Fin vers 00:07</span>
+      </button>
+  
+      <!-- 21:00 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">21:00</span>
+          <span class="session-version">VIP • VF</span>
+        </div>
+        <span class="session-end">Fin vers 00:37</span>
+      </button>
+  
+      <!-- 21:30 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">21:30</span>
+          <span class="session-version">IMAX 3D HFR • VOST</span>
+        </div>
+        <span class="session-end">Fin vers 01:07</span>
+      </button>
+  
+      <!-- 21:45 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">21:45</span>
+          <span class="session-version">4DX 3D • VF</span>
+        </div>
+        <span class="session-end">Fin vers 01:22</span>
+      </button>
+  
+      <!-- 22:00 -->
+      <button class="session-btn">
+        <div class="session-time">
+          <span class="session-hour">22:00</span>
+          <span class="session-version">VF</span>
+        </div>
+        <span class="session-end">Fin vers 01:37</span>
+      </button>
+    </div>
   </section>
   <footer class="footer">
      <p class="footerp pa">&copy; 2025 Spectravision. Tous droits réservés.        </p>

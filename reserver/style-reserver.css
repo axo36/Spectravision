@@ -343,6 +343,7 @@ button {
   border-radius: 1px;
   background: #222324;
   cursor: pointer;
+  color: #fff;
   white-space: nowrap;
   font-weight: bold;
 }

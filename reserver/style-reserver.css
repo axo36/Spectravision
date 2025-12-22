@@ -60,7 +60,7 @@ a:hover { text-decoration: underline; }
     border-bottom: 1px solid #010101;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 990;
     height: 70px; /* barre compacte */
 }
 .topbar nav a {

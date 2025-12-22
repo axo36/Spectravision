@@ -377,3 +377,12 @@ button {
   border-color: #fff;
   background-color: #222324;
 }
+
+.movie-poster {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+

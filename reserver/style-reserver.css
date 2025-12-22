@@ -336,11 +336,20 @@ button {
 }
 
 .arrow {
-  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  user-select: none;
-  padding: 10px;
 }
+
 
 .dates {
   display: flex;

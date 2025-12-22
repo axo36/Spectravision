@@ -36,7 +36,8 @@ a:hover { text-decoration: underline; }
 .brand {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.8rem
+    z-index: 999;
 }
 .brand-text h1 {
     font-size: 1.2rem;

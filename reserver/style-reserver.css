@@ -314,3 +314,40 @@ button {
     position: absolute;
 }
 
+.date-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.arrow {
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+.dates {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.date-btn {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f5f5f5;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.date-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}

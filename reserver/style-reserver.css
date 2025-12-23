@@ -393,7 +393,7 @@ button {
 }
 
 .film-1 {
-    display: flex; 
+    display: inline-flex; 
     align-items: stretch; 
     gap: 12px;
     margin-top: 6rem;

@@ -416,3 +416,7 @@ button {
     line-height: 1.6875rem !important;
     font-family: "tradegothic", ui-serif !important;
 }
+
+.sessions-row {
+    margin-left: 4rem;
+}

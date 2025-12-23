@@ -390,6 +390,9 @@ button {
     display: flex; 
     align-items: stretch; 
     gap: 12px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 }
 
 .testfilm {

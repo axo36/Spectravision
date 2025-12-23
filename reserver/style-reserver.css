@@ -386,3 +386,12 @@ button {
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
 }
 
+.film-1 {
+    display: flex; 
+    align-items: stretch; 
+    gap: 12px;
+}
+
+.testfilm {
+
+}

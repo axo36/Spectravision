@@ -22,7 +22,7 @@ html, body {
     font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 a { 
-    color: var(--secondary); 
+    color: #fff; 
     text-decoration: none !important; 
 }
 a:hover { 

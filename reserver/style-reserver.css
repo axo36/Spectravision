@@ -21,8 +21,13 @@ html, body {
     color: var(--text);
     font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-a { color: var(--secondary); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { 
+    color: var(--secondary); 
+    text-decoration: none !important; 
+}
+a:hover { 
+    text-decoration: underline; 
+}
 
 /* Logo */
 .logo-img {

@@ -439,4 +439,9 @@ button {
     gap: 6px;
 }
 
+.session-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
 

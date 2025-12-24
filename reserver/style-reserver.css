@@ -425,3 +425,8 @@ button {
 .movie-meta {
     color: #fff;
 }
+
+.infilm {
+    display: inline-flex;
+    align-items: stretch;
+}

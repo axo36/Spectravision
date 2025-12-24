@@ -409,8 +409,15 @@ button {
 }
 
 .session-btn {
-    backgound: #222324;
+    background: #222324;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: #fff;
 }
+
 
 .session-hour {
     font-size: 2.1875rem !important;
@@ -428,5 +435,8 @@ button {
 
 .infilm {
     display: inline-flex;
-    align-items: stretch;
+    align-items: center;
+    gap: 6px;
 }
+
+

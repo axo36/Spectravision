@@ -455,3 +455,7 @@ button {
   object-fit: contain;
   filter: brightness(0);
 }
+
+.backlo {
+  background: #fff;
+}

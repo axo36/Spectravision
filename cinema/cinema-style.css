@@ -197,4 +197,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
-
+.immmmg {
+    max-height: 50rem;
+    width: auto;
+}

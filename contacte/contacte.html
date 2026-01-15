@@ -59,5 +59,39 @@
      <p class="footerp pb">Site officiel – Créé par Spectravision</p>
     </footer>
   </section>
+    <!-- SCRIPT ENVOI EMAIL -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const sendBtn = document.getElementById('sendBtn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Désactiver le bouton et l’assombrir (via CSS)
+      sendBtn.disabled = true;
+
+      // Envoi via EmailJS
+      emailjs.sendForm("service_lsaa4zo", "template_umkge6s", this)
+        .then(() => {
+          console.log("✅ Email envoyé");
+          
+          // Création d’un lien invisible pour télécharger l’image
+          const link = document.createElement('a');
+          link.href = "asset/OIP.png";   // chemin correct vers ton image
+          link.download = "OIP.png";     // nom du fichier téléchargé
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        })
+        .catch(() => {
+          console.log("❌ Erreur lors de l'envoi");
+        });
+
+      // Réactiver le bouton après 10 secondes
+      setTimeout(() => {
+        sendBtn.disabled = false;
+      }, 10000);
+    });
+  </script>
 </body>
 </html>

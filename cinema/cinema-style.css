@@ -222,3 +222,11 @@ p.texm1 {
     font-size: larger;
     text-align: center;
 }
+
+.hh1 {
+    display: flex
+}
+
+.hh2 {
+    display: flex
+}

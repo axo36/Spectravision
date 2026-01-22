@@ -450,12 +450,22 @@ button {
 }
 
 .imglg {
-  height: 20%; /* petit, proportionnel */
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0);
+    height: 3.5rem;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0);
 }
 
 .backlo {
-  background: #fff;
+      /* background-color: #ffffff; */
+    border: none;
+    padding: 0px 0px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    cursor: pointer;
+    width: 4rem;
+}
 }

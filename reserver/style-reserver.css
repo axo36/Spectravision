@@ -411,11 +411,13 @@ button {
 .session-btn {
     background: #222324;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     padding: 8px 14px;
     border-radius: 6px;
     color: #fff;
+    vertical-align: middle;
+    flex-direction: column;
 }
 
 

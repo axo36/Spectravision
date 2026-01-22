@@ -198,10 +198,10 @@ button {
     transition: background-color 0.3s, transform 0.2s;
 }
 .immmmg1 {
-    height: 30rem;
-    margin-left: 1.5rem;
+    height: 45rem;
+    margin-left: 4rem;
     margin-top: 1rem;
-    width: 80rem;
+    width: 110rem;
 }
 
 .immmmg2 {
@@ -224,12 +224,21 @@ p.texm1 {
 }
 
 .hh1 {
-    display: flex
+    display: flex;
+    flex-direction: row;
 }
 
 .hh2 {
     display: flex;
     flex-direction: row;
+}
+
+p.texm2 {
+    font-size: larger;
+}
+
+p.texm3 {
+    font-size: larger;
 }
 
 p.texm4 {
@@ -239,6 +248,14 @@ p.texm4 {
 p.texm5 {
     font-size: larger;
 }
+
+.gd1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    font-size: larger;
+}
+
 
 .gd2 {
     display: flex;

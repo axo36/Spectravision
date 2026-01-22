@@ -478,3 +478,59 @@ button {
     width: 4rem;
 }
 
+/* PANEL LATÉRAL — STYLE DEVTOOLS */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -350px; /* caché à droite */
+  width: 350px;
+  height: 100%;
+  background: #0d0f14; /* couleur sombre élégante */
+  border-left: 1px solid #1f263d;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.6);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel.open {
+  right: 0; /* panneau visible */
+}
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #e7ecf3;
+}
+
+.panel-content h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.panel-content p {
+  margin: 0;
+  color: #9fb0c6;
+  line-height: 1.4;
+}
+
+.close-panel {
+  margin-top: auto;
+  padding: 10px 16px;
+  background: #00bcd4;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.close-panel:hover {
+  background: #00a5bb;
+}
+

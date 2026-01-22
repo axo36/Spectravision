@@ -450,14 +450,14 @@ button {
 }
 
 .imglg1 {
-    height: 3.5rem;
+    height: 1rem;
     width: auto;
     object-fit: contain;
     filter: brightness(0);
 }
 
 .imglg2 {
-    height: 3.5rem;
+    height: 1rem;
     width: auto;
     object-fit: contain;
     filter: brightness(0);

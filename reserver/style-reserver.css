@@ -534,3 +534,20 @@ button {
   background: #00a5bb;
 }
 
+.btn-reserver {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #4f7cff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-reserver:hover {
+  background: #3c65d4;
+}
+
+

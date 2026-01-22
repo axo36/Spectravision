@@ -449,7 +449,14 @@ button {
     gap: 10px;
 }
 
-.imglg {
+.imglg1 {
+    height: 3.5rem;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0);
+}
+
+.imglg2 {
     height: 3.5rem;
     width: auto;
     object-fit: contain;
@@ -468,4 +475,4 @@ button {
     cursor: pointer;
     width: 4rem;
 }
-}
+

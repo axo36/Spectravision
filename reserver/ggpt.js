@@ -1,3 +1,7 @@
+/* ---------------------------
+      GESTION DES DATES
+---------------------------- */
+
 const totalDays = 20;
 const visibleCount = 9;
 let startIndex = 0;
@@ -47,3 +51,21 @@ function selectDate(index) {
 }
 
 renderDates();
+
+
+/* ---------------------------
+   PANNEAU LATÉRAL (DEVTOOLS)
+---------------------------- */
+
+function openPanel() {
+  document.getElementById("side-panel").classList.add("open");
+}
+
+function closePanel() {
+  document.getElementById("side-panel").classList.remove("open");
+}
+
+/* Ouvre le panneau quand on clique sur une séance */
+document.querySelectorAll(".session-btn").forEach(btn => {
+  btn.addEventListener("click", openPanel);
+});

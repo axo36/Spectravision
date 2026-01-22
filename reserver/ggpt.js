@@ -57,8 +57,36 @@ renderDates();
    PANNEAU LATÉRAL (DEVTOOLS)
 ---------------------------- */
 
-function openPanel() {
-  document.getElementById("side-panel").classList.add("open");
+function openPanel() {function openPanelFromButton(btn) {
+  const hour = btn.querySelector(".session-hour")?.textContent || "";
+  const end = btn.querySelector(".session-end")?.textContent?.replace("→ ", "") || "";
+  const version = btn.querySelector(".session-version")?.textContent || "";
+  const formatImg = btn.querySelector("img")?.getAttribute("alt") || "";
+  const salle = formatImg.includes("IMAX") ? "Salle IMAX" :
+                formatImg.includes("4DX") ? "Salle 4DX" :
+                formatImg.includes("VIP") ? "Salle VIP" : "Salle 1";
+
+  const panel = document.getElementById("side-panel");
+  panel.classList.add("open");
+
+  panel.querySelector(".panel-content").innerHTML = `
+    <h2>${formatImg} — ${version}</h2>
+    <p><strong>Début :</strong> ${hour}</p>
+    <p><strong>Fin prévue :</strong> ${end}</p>
+    <p><strong>Salle :</strong> ${salle}</p>
+    <button class="close-panel" onclick="closePanel()">Fermer</button>
+    <button class="btn-reserver">Télécharger l'app</button>
+  `;
+}
+
+function closePanel() {
+  document.getElementById("side-panel").classList.remove("open");
+}
+
+document.querySelectorAll(".session-btn").forEach(btn => {
+  btn.addEventListener("click", () => openPanelFromButton(btn));
+});
+
 }
 
 function closePanel() {

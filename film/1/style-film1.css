@@ -569,6 +569,7 @@ p.nic {
 }
 
 p.mere {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

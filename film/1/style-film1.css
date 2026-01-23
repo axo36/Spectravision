@@ -551,3 +551,7 @@ button {
   background: #3c65d4;
 }
 
+.dr {
+    display: flex;
+    gap: 0.8rem;
+}

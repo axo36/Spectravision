@@ -75,7 +75,7 @@ function openPanel() {function openPanelFromButton(btn) {
     <h2>Skyfall Protocol</h2>
     <p class="bieu">${hour}</p>
     <p class="nic">${formatImg} — ${film}</p>
-    <p>${salle}<strong> • Durée : 3h17 - Fin prévue à</strong> ${end}</p>
+    <p class="mere">${salle}<strong> • Durée : 3h17 - Fin prévue à</strong> ${end}</p>
     <button class="btn-reserver">Télécharger l'app</button>
     <button class="close-panel" onclick="closePanel()">Fermer</button>
   `;

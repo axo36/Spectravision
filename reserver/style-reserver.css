@@ -312,7 +312,7 @@ button {
 
 /* Le PNG devient blanc */
 .tech-logo {
-  height: 1300%; /* petit, proportionnel */
+  height: 400%; /* petit, proportionnel */
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1); /* transforme le PNG en blanc */

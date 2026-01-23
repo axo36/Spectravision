@@ -72,10 +72,10 @@ function openPanel() {function openPanelFromButton(btn) {
   panel.classList.add("open");
 
   panel.querySelector(".panel-content").innerHTML = `
-    <h2>${film} — ${formatImg} — ${version}</h2>
-    <p><strong>Début :</strong> ${hour}</p>
-    <p><strong>Fin prévue :</strong> ${end}</p>
-    <p><strong>Salle :</strong> ${salle}</p>
+    <h2>Skyfall Protocol</h2>
+    <p>${hour}</p>
+    <p>${formatImg} — ${version}</p>
+    <p>${salle}<strong> • Durée : 3h17 - Fin prévue à</strong> ${end}</p>
     <button class="btn-reserver">Télécharger l'app</button>
     <button class="close-panel" onclick="closePanel()">Fermer</button>
   `;

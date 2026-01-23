@@ -555,3 +555,15 @@ button {
     display: flex;
     gap: 0.8rem;
 }
+
+p.bieu {
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+p.nic {
+    display: flex;
+    justify-content: center;
+}

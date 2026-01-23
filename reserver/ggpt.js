@@ -60,7 +60,8 @@ renderDates();
 function openPanel() {function openPanelFromButton(btn) {
   const hour = btn.querySelector(".session-hour")?.textContent || "";
   const end = btn.querySelector(".session-end")?.textContent?.replace("→ ", "") || "";
-  const version = btn.querySelector(".session-version")?.textContent || "";
+  const film = btn.querySelector(".session-version")?.textContent || "";
+  const version = btn.querySelector(".movie-title")?.textContent || "";
   const formatImg = btn.querySelector("img")?.getAttribute("alt") || "";
   const salle = formatImg.includes("IMAX") ? "Salle IMAX" :
                 formatImg.includes("4DX") ? "Salle 4DX" :
@@ -70,12 +71,12 @@ function openPanel() {function openPanelFromButton(btn) {
   panel.classList.add("open");
 
   panel.querySelector(".panel-content").innerHTML = `
-    <h2>${formatImg} — ${version}</h2>
+    <h2>${film} — ${formatImg} — ${version}</h2>
     <p><strong>Début :</strong> ${hour}</p>
     <p><strong>Fin prévue :</strong> ${end}</p>
     <p><strong>Salle :</strong> ${salle}</p>
-    <button class="close-panel" onclick="closePanel()">Fermer</button>
     <button class="btn-reserver">Télécharger l'app</button>
+    <button class="close-panel" onclick="closePanel()">Fermer</button>
   `;
 }
 

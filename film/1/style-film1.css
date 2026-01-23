@@ -567,3 +567,8 @@ p.nic {
     display: flex;
     justify-content: center;
 }
+
+p.mere {
+  display: flex;
+  justify-content: center;
+}

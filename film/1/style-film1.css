@@ -302,7 +302,7 @@ button {
 .tech-button {
   background-color: #161617; /* gris foncé */
   border: none;
-  padding: 13px 0px;
+  padding: 13px 3px;
   border-radius: 2px;
   display: inline-flex;
   align-items: center;

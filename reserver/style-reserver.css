@@ -550,4 +550,14 @@ button {
   background: #3c65d4;
 }
 
+p.nic {
+    display: flex;
+    justify-content: center;
+}
 
+p.bieu {
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}

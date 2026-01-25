@@ -61,7 +61,7 @@ function openPanel() {function openPanelFromButton(btn) {
   const hour = btn.querySelector(".session-hour")?.textContent || "";
   const end = btn.querySelector(".session-end")?.textContent?.replace("→ ", "") || "";
   const film = btn.querySelector(".session-version")?.textContent || "";
-  const version = btn.querySelector(".movie-title")?.textContent || "";
+  const version = btn.querySelector("h2.movie-title")?.textContent || "";
   const formatImg = btn.querySelector("img")?.getAttribute("alt") || "";
   const salle = formatImg.includes("IMAX") ? "Salle IMAX" :
                 formatImg.includes("4DX") ? "Salle 4DX" :

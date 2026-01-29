@@ -75,7 +75,9 @@ function openPanel() {function openPanelFromButton(btn) {
     <p><strong>Début :</strong> ${hour}</p>
     <p><strong>Fin prévue :</strong> ${end}</p>
     <p><strong>Salle :</strong> ${salle}</p>
-    <button class="btn-reserver">Télécharger l'app</button>
+    <a href="https://www.dropbox.com/sclz/fi/s6lyb5jqb6skz65hz3frg/Spectravisionsetup1.0.exe?rlkey=1y68vife0afz2lgd2uczrrl5l&amp;st=bpo5bzrz&amp;dl=1">
+        <button class="btn-reserver">Télécharger</button>
+    </a>
     <button class="close-panel" onclick="closePanel()">Fermer</button>
   `;
 }

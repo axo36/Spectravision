@@ -76,7 +76,7 @@ function openPanel() {function openPanelFromButton(btn) {
     <p class="bieu">${hour}</p>
     <p class="nic">${formatImg} — ${film}</p>
     <p class="mere">${salle}<strong> • Durée : 3h17 - Fin prévue à</strong> ${end}</p>
-    <a href="download.html">
+    <a href="../../download.html">
         <button class="btn-reserver">Télécharger</button>
     </a>
     <button class="close-panel" onclick="closePanel()">Fermer</button>

@@ -78,7 +78,7 @@ function openPanel() {function openPanelFromButton(btn) {
     <p class="bieu">${hour}</p>
     <p class="nic">${formatImg} — ${film}</p>
     <p class="mere">${salle}<strong> • Durée : 1h42 - Fin prévue à</strong> ${end}</p>
-    <a href="https://www.dropbox.com/scl/fi/s6lyb5jqb6skz65hz3frg/Spectravisionsetup1.0.exe?rlkey=1y68vife0afz2lgd2uczrrl5l&amp;st=bpo5bzrz&amp;dl=1">
+    <a href="download.html">
         <button class="btn-reserver">Télécharger</button>
     </a>
     <button class="close-panel" onclick="closePanel()">Fermer</button>

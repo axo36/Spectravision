@@ -71,8 +71,9 @@
         const todayStr = todayISO.toISOString();
 
         const todayData = await fetchJSON(
-          SUPABASE_URL + "/rest/v1/visits?select=count&ts=gte." + encodeURIComponent(todayStr)
+        `${SUPABASE_URL}/rest/v1/visits?select=count&ts=gte.${todayStr}`
         );
+
         const today = todayData[0]?.count ?? 0;
         document.getElementById("today").textContent = today;
 

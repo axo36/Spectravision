@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Spectravision</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background:#111; color:#eee; padding:20px; }
+    h1 { margin-bottom: 0.5rem; }
+    .cards { display:flex; gap:20px; margin:20px 0; flex-wrap:wrap; }
+    .card { background:#222; padding:15px 20px; border-radius:8px; min-width:200px; }
+    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    th, td { padding:8px 10px; border-bottom:1px solid #333; text-align:left; }
+    th { background:#222; }
+    code { background:#222; padding:2px 4px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Spectravision</h1>
+  <p>Stats basées sur les données Supabase (<code>visits</code>).</p>
+
+  <div class="cards">
+    <div class="card">
+      <h2>Visites aujourd’hui</h2>
+      <div id="today">...</div>
+    </div>
+    <div class="card">
+      <h2>Visites totales</h2>
+      <div id="total">...</div>
+    </div>
+  </div>
+
+  <h2>Pages les plus vues</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Page</th>
+        <th>Visites</th>
+      </tr>
+    </thead>
+    <tbody id="pages-body">
+      <tr><td colspan="2">Chargement...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const SUPABASE_URL = "https://aziwyqlpcgkpcgpcqjkv.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_wRtZ50ROcD0VPxjZBO3sbg_WvDTNs_e";
+
+    async function fetchJSON(url) {
+      const res = await fetch(url, {
+        headers: {
+          "apikey": SUPABASE_ANON_KEY
+        }
+      });
+      if (!res.ok) throw new Error("Erreur " + res.status);
+      return res.json();
+    }
+
+    async function loadStats() {
+      try {
+        // Total
+        const totalData = await fetchJSON(
+          SUPABASE_URL + "/rest/v1/visits?select=count"
+        );
+        const total = totalData[0]?.count ?? 0;
+        document.getElementById("total").textContent = total;
+
+        // Aujourd’hui
+        const todayISO = new Date();
+        todayISO.setHours(0,0,0,0);
+        const todayStr = todayISO.toISOString();
+
+        const todayData = await fetchJSON(
+          SUPABASE_URL + "/rest/v1/visits?select=count&ts=gte." + encodeURIComponent(todayStr)
+        );
+        const today = todayData[0]?.count ?? 0;
+        document.getElementById("today").textContent = today;
+
+        // Groupement par page
+        const pagesData = await fetchJSON(
+          SUPABASE_URL + "/rest/v1/visits?select=page,count:id&group=page&order=count.desc"
+        );
+
+        const tbody = document.getElementById("pages-body");
+        tbody.innerHTML = "";
+        if (!pagesData.length) {
+          tbody.innerHTML = "<tr><td colspan='2'>Aucune donnée pour l’instant.</td></tr>";
+          return;
+        }
+
+        for (const row of pagesData) {
+          const tr = document.createElement("tr");
+          const tdPage = document.createElement("td");
+          const tdCount = document.createElement("td");
+          tdPage.textContent = row.page || "(inconnu)";
+          tdCount.textContent = row.count;
+          tr.appendChild(tdPage);
+          tr.appendChild(tdCount);
+          tbody.appendChild(tr);
+        }
+      } catch (e) {
+        console.error(e);
+        document.getElementById("today").textContent = "Erreur";
+        document.getElementById("total").textContent = "Erreur";
+        document.getElementById("pages-body").innerHTML =
+          "<tr><td colspan='2'>Erreur de chargement des données.</td></tr>";
+      }
+    }
+
+    loadStats();
+    // rafraîchissement toutes les 10 secondes
+    setInterval(loadStats, 10000);
+  </script>
+</body>
+</html>

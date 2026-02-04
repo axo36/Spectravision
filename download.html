@@ -26,5 +26,25 @@
   <img src="asset/Capture d'écran 2026-01-31 173113.png" class="logo-img" />
   <img src="asset/Capture d'écran 2026-01-31 173121.png" class="logo-img" />
   <img src="asset/Capture d'écran 2026-01-31 173126.png" class="logo-img" /> -->
+  <script>
+  (function() {
+    const SUPABASE_URL = "https://aziwyqlpcgkpcgpcqjkv.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_wRtZ50ROcD0VPxjZBO3sbg_WvDTNs_e";
+
+    fetch(SUPABASE_URL + "/rest/v1/visits", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({
+        page: window.location.pathname
+      })
+    }).catch(() => {
+      // on ignore les erreurs, le visiteur ne voit rien
+    });
+  })();
+  </script>
 </body>
 </html>

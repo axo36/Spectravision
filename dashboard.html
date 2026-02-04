@@ -8,6 +8,8 @@
     h1 { margin-bottom: 0.5rem; }
     .cards { display:flex; gap:20px; margin:20px 0; flex-wrap:wrap; }
     .card { background:#222; padding:15px 20px; border-radius:8px; min-width:200px; }
+    .card h2 { margin:0 0 0.5rem 0; font-size:1.1rem; }
+    .card div { font-size:1.4rem; font-weight:bold; }
     table { width:100%; border-collapse:collapse; margin-top:20px; }
     th, td { padding:8px 10px; border-bottom:1px solid #333; text-align:left; }
     th { background:#222; }
@@ -16,7 +18,7 @@
 </head>
 <body>
   <h1>Dashboard Spectravision</h1>
-  <p>Stats basées sur les données Supabase (<code>visits</code>).</p>
+  <p>Stats basées sur la table <code>public.visits</code> de Supabase.</p>
 
   <div class="cards">
     <div class="card">
@@ -43,8 +45,8 @@
   </table>
 
   <script>
-    const SUPABASE_URL = "https://aziwyqlpcgkpcgpcqjkv.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_wRtZ50ROcD0VPxjZBO3sbg_WvDTNs_e";
+    const SUPABASE_URL = "https://aziwyqlpcgkpcgpcqjkv.supabase.co"; // ton URL
+    const SUPABASE_ANON_KEY = "sb_publishable_wRtZ50ROcD0VPxjZBO3sbg_WvDTNs_e"; // à remplacer
 
     async function fetchJSON(url) {
       const res = await fetch(url, {
@@ -58,28 +60,27 @@
 
     async function loadStats() {
       try {
-        // Total
+        // Visites totales
         const totalData = await fetchJSON(
-          SUPABASE_URL + "/rest/v1/visits?select=count"
+          `${SUPABASE_URL}/rest/v1/visits?select=count`
         );
         const total = totalData[0]?.count ?? 0;
         document.getElementById("total").textContent = total;
 
-        // Aujourd’hui
+        // Visites aujourd’hui (filtre sur la colonne "timestamp")
         const todayISO = new Date();
-        todayISO.setHours(0,0,0,0);
+        todayISO.setHours(0, 0, 0, 0);
         const todayStr = todayISO.toISOString();
 
         const todayData = await fetchJSON(
-        `${SUPABASE_URL}/rest/v1/visits?select=count&ts=gte.${todayStr}`
+          `${SUPABASE_URL}/rest/v1/visits?select=count&timestamp=gte.${todayStr}`
         );
-
         const today = todayData[0]?.count ?? 0;
         document.getElementById("today").textContent = today;
 
         // Groupement par page
         const pagesData = await fetchJSON(
-          SUPABASE_URL + "/rest/v1/visits?select=page,count:id&group=page&order=count.desc"
+          `${SUPABASE_URL}/rest/v1/visits?select=page,count:id&group=page&order=count.desc`
         );
 
         const tbody = document.getElementById("pages-body");

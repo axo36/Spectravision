@@ -57,46 +57,43 @@
 
     async function loadStats() {
       try {
-        // Total
-        const totalData = await fetchJSON(
-          `${SUPABASE_URL}/rest/v1/visits?select=count`
+        // Récupérer TOUTES les visites
+        const allVisits = await fetchJSON(
+          `${SUPABASE_URL}/rest/v1/visits?select=page,timestamp`
         );
-        document.getElementById("total").textContent =
-          totalData[0]?.count ?? 0;
+
+        // Total
+        document.getElementById("total").textContent = allVisits.length;
 
         // Aujourd’hui
         const todayISO = new Date();
         todayISO.setHours(0, 0, 0, 0);
         const todayStr = todayISO.toISOString();
 
-        const todayData = await fetchJSON(
-          `${SUPABASE_URL}/rest/v1/visits?select=count&timestamp=gte.${todayStr}`
-        );
-        document.getElementById("today").textContent =
-          todayData[0]?.count ?? 0;
+        const todayCount = allVisits.filter(v => v.timestamp >= todayStr).length;
+        document.getElementById("today").textContent = todayCount;
 
-        // Pages les plus vues
-        const pagesData = await fetchJSON(
-          `${SUPABASE_URL}/rest/v1/visits?select=page,count(id)&group=page&order=count(id).desc`
-        );
+        // Groupement par page (FAIT EN JS)
+        const pages = {};
+        for (const v of allVisits) {
+          pages[v.page] = (pages[v.page] || 0) + 1;
+        }
 
+        // Affichage
         const tbody = document.getElementById("pages-body");
         tbody.innerHTML = "";
 
-        if (!pagesData.length) {
-          tbody.innerHTML =
-            "<tr><td colspan='2'>Aucune donnée pour l’instant.</td></tr>";
-          return;
-        }
+        const sorted = Object.entries(pages).sort((a, b) => b[1] - a[1]);
 
-        for (const row of pagesData) {
+        for (const [page, count] of sorted) {
           const tr = document.createElement("tr");
           tr.innerHTML = `
-            <td>${row.page || "(inconnu)"}</td>
-            <td>${row.count}</td>
+            <td>${page}</td>
+            <td>${count}</td>
           `;
           tbody.appendChild(tr);
         }
+
       } catch (e) {
         console.error(e);
         document.getElementById("today").textContent = "Erreur";
